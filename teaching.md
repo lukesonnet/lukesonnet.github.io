@@ -15,6 +15,7 @@ R Markdown is a great tool to interleave code and writings. I have set up a quic
 * [Example HTML](/teaching/rmd/enp_example.html) [[.Rmd code that produce it](/teaching/rmd/enp_example.Rmd)]
 
 However, I also will be teaching with Stata in some situations. To that end, I have also created the following resource:
+
 * [Stata tutorial](/teaching/stata/sonnet_stata_tutorial.html)
 
 ### Data Visualization
