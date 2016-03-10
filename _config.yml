@@ -1,14 +1,12 @@
 # Dependencies
 markdown:         kramdown
-#highlighter:      pygments
-gems: [jekyll-paginate]
+gems:             [jekyll-paginate]
+
 # Permalinks
 permalink:        pretty
-#relative_permalinks: true
-
+highlight:        pygments
 # Setup
 title:            Luke Sonnet
-#tagline:          'A Jekyll theme'
 description:      'PhD Student, Political Science, UCLA'
 url:              http://lukesonnet.github.io
 baseurl:          /
@@ -17,10 +15,10 @@ author:
   name:           'Luke Sonnet'
   url:            https://twitter.com/LukeSonnet
 
-paginate:         5
-
+paginate:         1
+paginate_path:    "/thoughts/page:num"
 # Custom vars
-version:          2.1.0
+#version:          2.1.0
 
-github:
-  repo:           https://github.com/lukesonnet/lukesonnet.github.io
+#github:
+#  repo:           https://github.com/lukesonnet/lukesonnet.github.io

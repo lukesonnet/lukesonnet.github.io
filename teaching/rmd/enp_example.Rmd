@@ -1,0 +1,114 @@
+---
+title: "An Rmd Example: Electoral Rules, Ethnic Diversity, and the Effective Number of Parties"
+author: "Luke Sonnet"
+date: "February 18, 2015"
+output:
+  html_document:
+    toc: yes
+---
+
+This file serves as a brief exposition of basic R Markdown tools using a political science example. The `.Rmd` source code for this file is available [here](http://lukesonnet.bol.ucla.edu/files/rmd/enp_example.Rmd). If you want to use equations as I have here, you must install LaTeX. I proceed without citations for simplicity. I don't think Moser and Scheiner, Duverger, Taagepera, and so on really mind.
+
+## Theory
+
+### Electoral Rules
+
+There is a fundamental theory in political science known as Duverger's Law that states in single member districts---districts with only one representative---the number of competitive parties tends towards two. For example, members of the U.S. House of Representatives are elected in single member districts. This theory holds that voters, activists, and interest groups coordinate on only two parties because there is no benefit to supporting the third-best candidate when the race will come down to whoever has the most votes. Instead of voting for the hapless third-best candidate, they choose the one of the two frontrunners that they prefer. However, if there are multiple winners in an election, the incentives to coordinate are lessened.. For example, if the election is to decide who wins 10 seats in a legislature, then the third-best party might think they are positioned well enough to win at least a couple seats. Even the fourth-best party might, and so on and so forth. Therefore we expect that as **the district magnitude of an electoral system increases, so does the number of meaningful parties.** In fact, the theory has been extended to the following: a district with $M$ representatives will tend to have $M+1$ meaningful parties as coordination will simply happen further down the list of potential candidates.
+
+### Ethnic Diversity
+
+Furthermore, we expect that an ethnically homogeneous population will have fewer incentives to divide and create more parties. Perhaps there are fewer serious grievances or perhaps there are fewer natural cleavages for political entrepreneurs to seize upon. However, if the level of ethnic diversity is very high, than there are incentives to consolidate and create coalitions. As ethnic diversity increases to very high levels, they no longer become useful dividing lines that can be used to empower certain groups. Therefore, **low and high levels of ethnic diversity are conducive to a low number of meaningful parties, while middle levels of ethnic diversity are conducive to a high number of meaningful parties.**
+
+### Operationalization
+
+To test these theories quantitatively, I have to operationalize the above concepts in some measurable way. I use three variables:
+
+* Effective Number of Electoral Parties (`enep`)
+    + This is an operationalization of the number of meaningful parties in an election
+    + This is measured as $\frac{1}{\sum^N_{i=1} p^2_i}$ where $n$ is the number of parties that received one vote and $p_i$ is their parties vote share.
+    + If there are two parties with 0.5 of the vote share each, the ENEP is `r round(1/(.5^2 + .5^2), 3)`
+    + If there are two parties with 0.4 of the vote share, and a third with 0.2, the ENEP is `r round(1/(.4^2 + .4^2 + .2^2), 3)`
+    + If there is one party with 0.5, and five others with 0.1, the ENEP is `r round(1/(.5^2 + (.1^2)*5), 3)`
+* Mean District Magnitude (`mdm`)
+    + This is the average of all of the district magnitudes in the country
+    + For example, the mdm for the United States House of Representatives is 1, because all districts have a magnitude of 1
+* Ethnic Fractionalization (`ethFrac`)
+    + This is measured as the probability that any two people randomly drawn from the country are from different groups
+    + Therefore it ranges from 0 where everyone is in the same group, to 1, where everyone is their own ethnic group
+
+## Data and Analysis
+
+### Loading and First Look
+
+I have quickly put together a dataset from the [Quality of Government](http://qog.pol.gu.se/) cross-section. I have just dropped all rows with missing values. Let's take a look at the data. The data can be downloaded [here](http://lukesonnet.bol.ucla.edu/files/rmd/qog_data.csv). You may want to right-click save as.
+
+```{r}
+# Read in the data
+df <- read.csv("qog_data.csv", as.is=T)
+
+# Take a first look at the data
+head(df)
+
+# List the countries in the dataset
+df$country
+```
+
+Let's plot some histograms of our data:
+
+```{r echo=FALSE, fig.width=8, fig.height=3}
+par(mfrow=c(1,3)) # This prints the plots side by side (1 col, 3 rows)
+hist(df$enep)
+hist(df$mdm)
+hist(df$ethFrac)
+```
+
+Take some time to notice the range for each variable and their distribution. It looks like we might want to log the mean district magnitude and effective number of parties so that outliers (like Ukraine's district magnitude of 450) are not driving our results.
+
+```{r fig.width=6, fig.height=3}
+df$lnenep <- log(df$enep)
+df$lnmdm <- log(df$mdm)
+par(mfrow=c(1,2)) # This prints the plots side by side (1 col, 2 rows)
+hist(df$lnenep)
+hist(df$lnmdm)
+```
+
+That's a little bit better.
+
+### Bivariate Plots
+
+Let's take a first glance at our predictions that higher district magnitude will increase the number of parties and that low and high levels of ethnic fractionalization will lower the number of parties relative to a medium level of ethnic fractionalization. I plot the two explanatory variables against the outcome variable and draw a line of best fit through the points (OLS)
+
+```{r echo=FALSE, fig.width=7, fig.height=4}
+par(mfrow=c(1,2)) # This prints the plots side by side (1 col, 2 rows)
+plot(df$lnmdm, df$lnenep)
+abline(lm(lnenep ~ lnmdm, data=df))
+plot(df$ethFrac, df$lnenep)
+abline(lm(lnenep ~ ethFrac, data=df))
+```
+
+It looks like we have some support for the relationship between the district magnitude and the effective number of parties. The relationship between ethnic fractionalization and effective number of parties is harder to see here because the theory predicts a nonlinear relationship. Let's look at it in a regression context.
+
+### Regression
+
+First we will create a new variable called `ethFracsq`. This will be the square of ethnic fractionalization. We use this second-order term because we are interested in a non-linearity; namely, we want to test whether low and middle levels of ethnic fractionalization increase the effective number of parties while very high values decrease the effective number of parties. Then we use multivariate regression to test for the relationship between our explanatory variables and the effective number of parties, while controlling for each other.
+
+```{r include=FALSE}
+library(lmtest)
+# This contains the coeftest function
+# I just do it this way to show how to silently load a package
+```
+
+```{r}
+# Creating the squared variable
+df$ethFracsq <- df$ethFrac^2
+
+# Fitting the regression
+m <- lm(lnenep ~ lnmdm + ethFrac + ethFracsq, data=df)
+# Results (requires the 'lmtest' package)
+# you could also use 'summary(m)' which comes standard with R
+coeftest(m)
+```
+
+Here you can see there is evidence suggesting that higher district magnitudes are related to a greater effective number of parties. The relationship between ethnic fractionalization and number of parties is less clear and not statistically significant. Nonetheless, the coefficients directly oppose the predictions; low and high levels of ethnic fractionalization predict more parties while medium levels predict fewer parties.
+
+This is a really simple model, so don't take this too seriously, but hopefully it showed you what a very simple document in Rmd looks like.

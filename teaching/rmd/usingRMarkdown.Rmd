@@ -1,0 +1,306 @@
+---
+title: "Using R Markdown"
+author: "Luke Sonnet"
+date: "February 18, 2015"
+output:
+  html_document:
+    number_sections: yes
+    toc: yes
+---
+
+```{r "knitr-setup", include=FALSE, cache=FALSE}
+# knitr-setup should be the first chunk in the document.
+knitLiteral::kast_on()
+```
+
+```{r echo=FALSE}
+# This allows me to show tick marks inline
+rinline <- function(code){
+  html <- '<code  class="r">``` `r CODE` ```</code>'
+  sub("CODE", code, html)
+}
+```
+
+This tutorial will use [RStudio](http://rstudio.com/). We will be producing HTML documents for this class. If you want to use LaTeX and produce PDFs, then you must install it and follow some resources online. However, in that case I recommend you just learn how to create documents with `knitr`. You can find additional/better resources through RStudio [here](http://rmarkdown.rstudio.com/) and at the creator of `knitr`'s website [here](http://yihui.name/knitr/demo/minimal/). Also, this document was made with R Markdown and you can find the code that produced it [here](http://lukesonnet.bol.ucla.edu/files/rmd/usingRMarkdown.Rmd).
+
+***
+
+# Basics
+
+R Markdown is wonderful and not very difficult. You can produce crisp looking documents without much effort and the brevity of this manual is a testament to that. I hope I can help you get set up, but never forget that your best ally is the internet, and between Yihui Xie and RStudio's sites there is so much to be learned and explored.
+
+## Initializing Document
+
+The simplest way to open a new R Markdown file is to click `File - New File - R Markdown...`. This will open up a dialog box. Enter name(s) of the author(s) and the name of the project. Make sure the default output format is HTML.
+
+Then a file will be produced with the following header:
+
+```
+---
+title: "My Title"
+author: "Luke Sonnet"
+date: "02/18/2015"
+output: html_document
+---
+```
+
+You can edit the values within the quotation marks right in the document to change those values. All information in the header works like this: `key: "value"`. RStudio appends some content to show you some basic functionality when you begin an R Markdown file. Go ahead and `knit` it!
+
+## Knitting Document
+
+Knitting a document is like compiling it. To knit a document in RStudio, just click `knit HTML` on the top of the file. It will pop up your output. That's it! If you saved your `.Rmd` file, then now you will have a `.Rmd` and a `.html` file in the same directory. That HTML file is your output.
+
+***
+
+# R Markdown Syntax
+
+This section describes how to write and format just the plain text in an R Markdown file. This shows how to create lists (numbered and bullet), bold, italicize, and more. To see a great list online of some of these features (and those covering chunks that I discuss in the next section), see [this reference guide](http://rmarkdown.rstudio.com/RMarkdownReferenceGuide.pdf). What is below is essentially a shorter version of that.
+
+
+## Text Formatting
+
+### Basic
+
+How you type it                 | What you see
+------------------------------- | ------------------------------------
+`This is plain text`            | This is plain text
+`This is *italicized* text`     | This is *italicized* text
+`This is **bold** text`         | This is **bold** text
+`This is exponentiated^2^ text` | This is exponentiated^2^ text
+`This is ~~stikethrough~~ text` | This is ~~strikethrough~~ text
+`This is an emdash: ---`        | This is an emdash: ---
+`This is a [link](www.google.com)` | This is a [link](www.google.com)
+
+For the following tools, you should make sure that you have left empty lines around them to let R Markdown know you want it to treat them like a command. To add a horizontal line after some text like use the following command, but again, make sure there are empty lines around it:
+`***`
+
+It will look like this:
+
+***
+
+### Lists
+
+You can also create a list, number and unnumbered, like this (again make sure to put empty lines before and after any lists):
+```
+* Unordered list 1
+* Unordered list 2
+    + sub-item 1
+    + sub-item 2
+    
+1. List number 1
+2. List number 2
+```
+
+That will look like this:
+
+* Unordered list 1
+* Unordered list 2
+    + sub-item 1
+    + sub-item 2
+    
+1. List number 1
+2. List number 2
+
+### Quotes
+
+Here is how you block quote:
+```
+> If you want to force a line break, add two spaces after the line  
+> and you will be returned to the next line
+```
+
+> If you want to force a line break, add two spaces after the line  
+> and you will be returned to the next line
+
+### Tables
+
+Lastly, you can build a table like this:
+```
+Table header 1 | Table header 2
+-------------- | --------------
+Cell 1         | Cell 2
+Cell 3         | Cell 4
+```
+That will look like so:
+
+Table header 1 | Table header 2
+-------------- | --------------
+Cell 1         | Cell 2
+Cell 3         | Cell 4
+
+### Spell Checker
+
+RStudio has a built in spell checker. In the tool bar above where you type there is a green check with an ABC above it. Please use this. Please. Especially before you turn in a document.
+
+## Organizing your Document
+
+### Headers
+
+You can organize your document by using headers. `# header 1` is the largest header, with a subheader being `## header 2`. You can keep adding hash marks/pound signs up until `###### header 6`. 
+
+### Table of Contents
+
+To build a table of contents, you only need to change the top part of your code to add one line.
+
+```
+---
+title: "My Title"
+author: "Luke Sonnet"
+date: "02/18/2015"
+output: 
+  html_document:
+    toc: true
+---
+
+# This is my big header
+
+Wow
+
+## This is a smaller header!
+
+### I'm even smaller! Wow!
+```
+
+I can also add the maximum depth for the table of contents, so that it only picks up the largest headers.
+
+```
+---
+title: "My Title"
+author: "Luke Sonnet"
+date: "02/18/2015"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 2
+---
+```
+
+***
+
+# Embedding R Code
+
+Now to the really exciting part. For this class you will use these R Markdown files to create reports about the work that you have done in R. How one does this is very simple. Your key tool will be the backtick: `r rinline('\x60')` which will define what are called chunks. These chunks of R code will be evaluated/compiled when you knit your file and can display the output directly in your file, making embedding plots, tables, and results very easy.
+
+I should note here that at any time you can run lines of R code just as you would in RStudio regularly, using `CTRL - Enter` or selecting lines and clicking `Run`.
+
+## Simple Example
+
+To create a chunk of code, simply do the following (you can use three or four of the back ticks to initiate a chunk):
+
+```{r literal=TRUE, echo=FALSE, eval=FALSE}
+x <- c('u','c','l','a')
+x
+```
+
+When you knit that code, it will look like the following:
+
+```{r}
+x <- c('u','c','l','a')
+x
+```
+
+It displays both the code with nice syntax highlighting and the output in separate boxes, making it clear what you have done and easy to read.
+
+## Chunk Options
+
+After the `r` in the header for each chunk, you can include a bunch of options. To see a list of all of them, see [the reference guide](http://rmarkdown.rstudio.com/RMarkdownReferenceGuide.pdf) again. I'll walk through some basics.
+
+### Suppressing the Code
+
+If you want to run some code but not display it in your final document, then you should use the `echo` option. If you use the following:
+
+```{r echo=FALSE, literal=TRUE, eval=FALSE}
+x <- c('u','c','l','a')
+x
+```
+
+then you will evaluate the R code and return the output, but you won't show the command that generated it, like so:
+
+```{r echo=FALSE}
+x <- c('u','c','l','a')
+x
+```
+
+### Suppress the Output
+
+To display the code itself but to not run it, you want to use the `eval=FALSE` option. `eval` controls whether or not your code is evaluated and when it is set to `FALSE` that chunk will not be run at all. Therefore the following chunk:
+
+```{r eval=FALSE, literal=TRUE, echo=FALSE}
+x <- c('u','c','l','a')
+x
+```
+
+Will look like this when knit (note it does not print the output):
+
+```{r eval=FALSE}
+x <- c('u','c','l','a')
+x
+```
+
+If you want the code to compile, but you don't want it to be shown at all in the final document, you can use the `include` option:
+
+```{r include=FALSE, literal=TRUE, include = TRUE, eval= FALSE, echo=FALSE}
+x <- c('u','c','l','a')
+x
+```
+
+## Plots
+
+You can also include plots in R Markdown. I will demonstrate how and what are the most relevant chunk options here.
+
+### Basic Plotting
+
+This is a basic example of the code for plotting, and then what it will look like. I'm going to suppress the code made to produce this plot with `echo=FALSE`. If you delete this option it will default to `TRUE` and will include the code that generated the plot. I will use the `mtcars` data that comes with `R` to demonstrate this
+
+```{r}
+# Demonstrating the data first
+head(mtcars)
+```
+
+Here is the code used:
+
+```{r echo=FALSE, literal=TRUE, eval=FALSE}
+plot(mtcars$mpg, mtcars$wt)
+```
+
+When knit that will look like this (note that `echo` is suppressing the code used to produce the plot):
+
+```{r echo=FALSE}
+plot(mtcars$mpg, mtcars$wt)
+```
+
+### Resizing Plots
+
+Now say we want a specific size of the plot, I can do that with two simple chunk options, `fig.height` and `fig.width` which are denominated in inches. Let's make the above plot a lot smaller.
+
+```{r echo=FALSE, fig.height=3, fig.width=5, literal=TRUE, eval=FALSE}
+plot(mtcars$mpg, mtcars$wt)
+```
+
+That snippet will look like the following when knit:
+
+```{r echo=FALSE, fig.height=3, fig.width=4}
+plot(mtcars$mpg, mtcars$wt)
+```
+
+## Using R In Line
+
+To place R code inline, it's as simple as this: `r rinline("mean(mtcars$mpg)")`.
+
+The mean miles per gallon of cares in this dataset is `r mean(mtcars$mpg)`.
+
+***
+
+# Examples
+
+I have created a full example using R Markdown for you to see it in action
+
+* Number of Parties, Ethnic Diversity, and Electoral System
+    + [Output (HTML file)](http://lukesonnet.bol.ucla.edu/files/rmd/enp_example.html)
+    + [Code that generated it (Rmd file)](http://lukesonnet.bol.ucla.edu/files/rmd/enp_example.Rmd)
+
+***
+
+# Additional Notes
+
+This has been very basic. I have some links here to follow, but as always turn to the internet. If you are comfortable with LaTeX I recommend using that rather than this simple R Markdown syntax.
