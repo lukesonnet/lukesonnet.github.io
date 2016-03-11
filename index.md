@@ -3,6 +3,8 @@ layout: main
 title: Home
 ---
 
+## Home
+
 ![Mt. Whitney](/assets/whitney.jpg){: align="right" height="220.4px" width="290px"}
 Hello! My name is Luke Sonnet, I am a third year PhD student in Political Science at UCLA.
 

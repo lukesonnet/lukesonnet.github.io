@@ -6,6 +6,8 @@ published: true
 status: publish
 ---
  
+**Edit: Nosek and friends had [similar thoughts.](http://retractionwatch.com/2016/03/07/lets-not-mischaracterize-replication-studies-authors/)**
+ 
 A lot of typing and markdown has been written over this issue, so I'll keep it short.
  
 A recent issue of [*Science*](http://science.sciencemag.org/content/351/6277) contains a technical comment by Gilbert et al. (2016) on the Open Science Collaboration's reproducibility project. Among other claims, Gilbert et al. argue that the OSC project was too pessimistic about reproducibility in Psychology and that infidelities in the replication studies could be at the core of the large number of failures to replicate. While Gilbert et al. may have made some mistakes themselves [for a wonderful response see [Sanjay Srivastava's post here](https://t.co/TkozjzeOei)], many of their points are well taken, especially about infidelities between research designs.

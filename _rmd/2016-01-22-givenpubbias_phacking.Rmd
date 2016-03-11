@@ -2,8 +2,8 @@
 title: "Given publication bias, p-hacking reduces meta-analysis bias"
 author: "Luke Sonnet"
 date: "January 22, 2016"
-published: false
-status: process
+published: true
+status: 
 ---
 
 Most people would agree that "p-hacking"", the art of getting a p-value just below 0.05, and publication bias both hurt the accumulation of knowledge. We end up with data hidden in subfolders of discarded laptops and estimated effects biased away from 0. However, their effect on meta-analyses is not additive. In fact, if we take publication bias as given, p-hacking actually might reduce the bias in naive meta-analyses. 
