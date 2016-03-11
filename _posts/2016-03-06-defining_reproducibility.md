@@ -6,7 +6,7 @@ published: true
 status: publish
 ---
  
-**Edit: Nosek and friends had [similar thoughts.](http://retractionwatch.com/2016/03/07/lets-not-mischaracterize-replication-studies-authors/)**
+*Edit: Nosek and friends had [similar thoughts.](http://retractionwatch.com/2016/03/07/lets-not-mischaracterize-replication-studies-authors/)*
  
 A lot of typing and markdown has been written over this issue, so I'll keep it short.
  
