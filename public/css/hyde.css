@@ -75,6 +75,11 @@ html {
   color: #fff;
 }
 
+.sidebar-imgContain{
+  float:left;
+  padding-right: 5px
+}
+
 /* About section */
 .sidebar-about h1 {
   color: #fff;
