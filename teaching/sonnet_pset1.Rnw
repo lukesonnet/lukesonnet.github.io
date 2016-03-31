@@ -86,6 +86,8 @@ someLongFunction <- function(x) sd(mean(x))
 \end{itemize}
 \end{framed}
 
+% Let's add a box
+\begin{framed}
 \section*{1. Probability Theory I: Events}
 The 1982 movie \textit{Blade Runner} (starring Harrison Ford) is set in a future world where there are robots that are designed to look and behave exactly like human beings. The only way to tell if a randomly selected individual (who appears to be human) is in fact a human being or a robot is to administer a test. In our version of the test, suppose that if an individual taking the test is in fact a robot, the test will report that the individual is a robot 95\% of the time. If an individual taking the test \textit{is not} a robot, the test will report that the individual \textit{is} a robot 3\% of the time.  Based on the number of robots manufactured, we can estimate that about 2\% of all individuals we would test are actually robots.
 \begin{enumerate}
@@ -98,7 +100,7 @@ The 1982 movie \textit{Blade Runner} (starring Harrison Ford) is set in a future
 \medskip
 %\item[d)](4pts) Suppose that an individual is classified as a robot by the test and we decide to administer the test a second time. If the individual is classified as a robot again by the second test, what is the probability that the individual is in fact a robot? \textit{Hint: Use your answer from part (b) as your prior probability that an individual who appears to be human is actually a robot}.
 \end{enumerate}
-
+\end{framed}
 \textbf{a)} My answer can go here. How cool is that! Luke can grade really easily now! Let's use some \texttt{R} to answer this question.
 
 <<1a, cache=TRUE>>=
