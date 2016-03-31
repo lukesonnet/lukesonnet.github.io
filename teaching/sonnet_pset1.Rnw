@@ -1,0 +1,227 @@
+\documentclass[11pt,english]{article}
+%\usepackage[T1]{fontenc}
+%\usepackage[latin9]{inputenc}
+\usepackage{babel}
+\usepackage{verbatim}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{setspace}
+\usepackage{framed}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
+\onehalfspacing
+\usepackage[unicode=true,pdfusetitle,
+ bookmarks=true,bookmarksnumbered=false,bookmarksopen=false,
+ breaklinks=false,pdfborder={0 0 1},backref=section,colorlinks=false]
+ {hyperref}
+%\usepackage{breakurl}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+
+\usepackage{latexsym}
+\addtolength{\hoffset}{-0.75in}
+\addtolength{\voffset}{-0.75in}
+\addtolength{\textwidth}{1.5in}
+\addtolength{\textheight}{1.6in}
+
+% === dcolumn package ===
+\usepackage{dcolumn}\newcolumntype{.}{D{.}{.}{-1}}
+\newcolumntype{d}[1]{D{.}{.}{#1}}
+
+\usepackage{comment}
+
+% === more new math commands
+\newcommand{\X}{\mathbf{X}}
+\newcommand{\Y}{\mathbf{Y}}
+\renewcommand{\r}{\right}
+\renewcommand{\l}{\left}
+\newcommand{\dist}{\buildrel\rm d\over\sim}
+\newcommand{\ind}{\stackrel{\rm indep.}{\sim}}
+\newcommand{\ud}{\mathrm{d}}
+\newcommand{\iid}{\stackrel{\rm i.i.d.}{\sim}}
+\newcommand{\logit}{{\rm logit}}
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\cJ}{\mathcal{J}}
+\newcommand{\bone}{\mathbf{1}}
+\newcommand{\var}{{\rm Var}}
+\newcommand{\cov}{{\rm Cov}}
+\newcommand{\tomega}{\tilde\omega}
+
+% === spacing
+\newcommand{\spacingset}[1]{\renewcommand{\baselinestretch}%
+{#1}\small\normalsize}
+% \spacingset{1.2}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+<<set-dir, include = F>>=
+## First let's write a hidden chunk to set our working directory. Luke doesn't need to see this in your output.
+## So in the line above we say 'include=FALSE'
+setwd("C:/Dropbox/class/2016_2Spring/200D/hw/")
+## Also a joke function for later
+someLongFunction <- function(x) sd(mean(x))
+@
+
+
+\begin{document}
+\title{\textbf{PS 200D}\\
+\textbf{ Problem Set 1 Answers}}
+\author{Luke Sonnet \\ March 28, 2015}
+
+\date{\textbf{Due April 6}}
+\maketitle
+
+\textit{This problem set is intended to (a) help remind you of some essential material which you are expected to know; (b) help you to clarify whether you have the necessary background for the course.}\\
+
+\smallskip
+\begin{framed}
+\textbf{Instructions:}
+\begin{itemize}
+\item Responses should be typeset in \LaTeX (optionally via \texttt{Knitr}) or RMarkdown. 
+\item Submit your completed problem set as a single PDF via the course website.  If you are not using Knitr or RMarkdown, please include a copy of your code in your write-up (e.g. using the \texttt{verbatim} environment). If in doubt about formatting issues, please check with the TA.
+\end{itemize}
+\end{framed}
+
+\section*{1. Probability Theory I: Events}
+The 1982 movie \textit{Blade Runner} (starring Harrison Ford) is set in a future world where there are robots that are designed to look and behave exactly like human beings. The only way to tell if a randomly selected individual (who appears to be human) is in fact a human being or a robot is to administer a test. In our version of the test, suppose that if an individual taking the test is in fact a robot, the test will report that the individual is a robot 95\% of the time. If an individual taking the test \textit{is not} a robot, the test will report that the individual \textit{is} a robot 3\% of the time.  Based on the number of robots manufactured, we can estimate that about 2\% of all individuals we would test are actually robots.
+\begin{enumerate}
+\medskip
+\item[a)](4pts) What is the probability that a randomly selected individual given the test will be classified as a robot?
+\medskip
+\item[b)](4pts) Given that an individual is classified as a robot by the test, what is the probability that individual is actually a robot?
+\medskip
+\item[c)](4pts) Given that an individual is classified as a human by the test, what is the probability that individual is actually a robot?
+\medskip
+%\item[d)](4pts) Suppose that an individual is classified as a robot by the test and we decide to administer the test a second time. If the individual is classified as a robot again by the second test, what is the probability that the individual is in fact a robot? \textit{Hint: Use your answer from part (b) as your prior probability that an individual who appears to be human is actually a robot}.
+\end{enumerate}
+
+\textbf{a)} My answer can go here. How cool is that! Luke can grade really easily now! Let's use some \texttt{R} to answer this question.
+
+<<1a, cache=TRUE>>=
+x <- rnorm(100)
+mean(x)
+@
+
+What if we need a plot? That is embedded right away! And we can control the size of the figure too.
+
+<<1a-plot, fig.width=4, fig.height=3>>=
+hist(x)
+@
+
+What if we have long answers that take a long time to run? We can set it to cache the answers but we should make sure it updates when we change the value of \texttt{x}. Then we have to cache that chunk as well.
+<<1a-run-long, cache=TRUE, dependson='1a'>>=
+someLongFunction(x)
+@
+
+Because this is \latex we can just add math as we normally would,
+
+\begin{align*}
+	\E[aX] &= \sum_{x \in X} ax p(x) \\
+	&= a \sum_{x \in X} x p(x) \\
+	&= a \E[X]
+\end{align*}
+
+\section*{2. Probability Theory II: Random Variables}
+\begin{enumerate}
+\item[a)](2pt) Consider continuous random variable $X$ with probability distribution $p(X)$.\footnote{In problem sets we will maintain the notation used in class, in which $p(Z)$ is a density function for random variable $Z$. Note that we use $p$ instead of $f$, and that we use this for both probability density functions and probability mass functions. Further, we drop the subscript and assume that the density is for the random variable referenced in the parentheses (i.e. $f_X(X)$ is simply $p(X)$)}. How is $\E[X]$ defined? (Give the definition, not the estimator you'd use given a sample).
+
+\item[b)](2pt) How is $\operatorname{Var}(X)$ defined?
+
+\item[c)](2pt) Further suppose $X$ and $Y$ have joint density $p(X,Y)$. How is $\E[Y|X]$ defined? (Write it out in terms of an integral and density function). 
+
+\item[d)](2pt) If $X$ and $Y$ were independent, what does $\E[X|Y]$ reduce to? (Show why this is, writing out the definition of $\E[X|Y]$ first).
+ 
+\end{enumerate}
+
+\textit{For the following questions, draw random variables $X_1$, $X_2$,..., $X_N$, all independently from $p(X)$.}
+
+\begin{enumerate}
+\item[e)](2pt) Suppose you have scalars, $a,\,b,\,c$.  What is $\E[aX_1+bX_2+cX_3]$? What is $\operatorname{Var}[aX_1+bX_2+cX_3]$?
+
+\item[f)](4pt) Let $\overline{X} = \displaystyle{\frac{1}{N} \sum_i^{N}} X_i$. Is $\overline{X}$ unbiased for $\E[X]$? Prove it. (Do not just cite a theorem!)
+
+\item[g)](4pt) Derive the variance of $\overline{X}$. What happens to it as $N \rightarrow \infty$?
+\end{enumerate}
+
+\section*{3. Matrix Algebra, OLS, and \texttt{R} Practice}
+Consider random variables $Y\in \mathbb{R}$ and $X \in \mathbb{R^{P}}$, drawn from joint density $p(X,Y)$. You collect a sample of draws from this distribution, $\{(Y_1,X_i),...,(Y_N,X_N)\}$. 
+
+Let $\X$ be a $N \times (1+P)$ matrix, with row $i$ equal to $[1\,\, X_i^{\top}]$ (i.e., there is an intercept and then a column for each ``covariate''). Consider an OLS model, $Y=\X\beta +\epsilon$, where $\E[\epsilon|X]=0$. 
+
+\begin{enumerate}
+\setcounter{enumi}{7}
+\item[a)](5pt)  Using matrix notation at each step, derive the ordinary least squares estimator for $\beta$:
+$$\beta_{OLS} = \underset{\beta \in \mathbb{R}^{P+1}}{argmin} (\Y-\X\beta)^{\top}(\Y-\X\beta)$$
+\item[b)](5pt)  Show \texttt{R} code that would achieve the following (there is no need to submit this code in a separate file; just include it in your problem set write-up using an environment such as $\texttt{verbatim}$):
+\begin{itemize}
+\item[i.] Construct a matrix $X$ to represent $\X$ in the above, with $N=100$, one column of ones, and two columns of randomly drawn numbers (from any distribution you like). 
+\item[ii.]  Using $\beta=[1\,\,2\,\,3]^{\top}$, compute vector $Y$ equal to $X\beta + \epsilon$, where $\epsilon$ is drawn from a standard normal distribution.
+\item[iii.] Compute $(X^{\top}X)^{-1}(X^{\top}Y)$. Use the \texttt{solve} function in \texttt{R}.  
+\item[iv.] Compare the result to the coefficients obtained using \texttt{lm} with the data you have constructed. 
+\end{itemize}
+
+\item[c)](5pt) Show the unbiasedness of $\hat{\beta}_{OLS}$ for $\beta$. (Hint: compute $\hat{\beta}_{OLS}$, but replacing $Y$ with $\X\beta+\epsilon$). 
+
+\item[d)](5pt) Compute the variance, with $X$ taken as given, i.e. $\V[\hat{\beta}_{OLS}|\X]$, again sticking with matrix notation. You may assume $\E[\epsilon \epsilon^{\top}|\X]=\sigma^2 I_N$, where $I_N$ is the $N \times N$ identity matrix.   
+%\item[e)](2pt) What meaning would you give to the matrix $\E[\epsilon \epsilon^{\top}|\X]$? Give an intuitive explanation of what the assumption that this matrix equals $\sigma^2 I$ implies.
+\end{enumerate}
+
+\section*{4. Some Statistics Review}
+Which of the following statements are true or false? For credit, explain your choice \textbf{briefly}.
+\begin{enumerate}
+\item[a)](3pt) If there is perfect collinearity, the OLS estimator will give biased and inconsistent estimates.  %
+\bigskip
+\item[b)](3pt) A very large p-value for the estimated coefficient for an explanatory variable provides strong evidence that the variable has zero effect on the outcome.
+\bigskip
+\item[c)](3pt) If an estimator is unbiased it is also consistent.  
+\bigskip
+%\item Convergence in distribution always implies convergence in probability, but convergence in probability does not necessarily imply convergence in distribution. 
+%\bigskip
+\item[d)](3pt) You have a model $Y_i=X_i^{\top}\beta + \epsilon$, and you fit it by OLS. If the OLS residuals are uncorrelated with $X$, our estimate of $\beta$ must be unbiased.
+\end{enumerate}
+
+%\section*{5. More review of inference} A polling firm did a large $n$ random survey of the American population to find out the level of support for President Obama.  They estimated from the sample that the average support for Obama was 53\% with a 95\% confidence interval of (49\%, 57\%).  Assuming that the methodology used was correct, which of the following is true or false? In each case, briefly explain your choice.
+%
+%\begin{enumerate}
+%\item[a)](3pt) President Obama has the support of a majority of Americans.
+%\item[b)](3pt) The sampling distribution of the sample mean is approximately Normal.
+%%\item[c)] Obama's true level of support is between 49\% and 57\% with 0.95 probability.
+%\item[c)](3pt) If we drew random samples of the population many times, 95\% of the time the true level of support will be between 49\% and 57\%.
+%\item[d)](3pt) The standard error of the estimate is around 2\%.
+%\end{enumerate}
+
+\section*{5. Simulations of Key Properties of the Mean}
+
+Suppose $X_1 \sim N(5,2)$ and $X_2 \sim exp(\lambda=1)$ (where $exp$ indicates the exponential distribution). In \texttt{R}, construct two vectors, \texttt{X1} with  10000 draws from the same distribution as $X_1$, and \texttt{X2} with 10000 draws from the same distribution as $X_2$.
+
+We will take sub-samples from these two variables to evaluate the coverage probability of 95\% confidence intervals using different types of data and different sample sizes.  
+
+\bigskip
+
+\textbf{(a)}(3pt) Describe the distribution of {\tt X1} and {\tt X2} using your favorite graphical approach for looking at continuous distributions. Mark the true expectation on your plot using a line. 
+
+\bigskip
+
+\textbf{(b)}(4pts) Consider for a moment the random variables $\overline{X}_1$ and  $\overline{X}_2$, representing sample means you could get from taking the average of 8 randomly sampled values of $X_1$ or $X_2$ respectively.  Using math (not \texttt{R}), give solutions for:
+\begin{itemize}
+\item  $\E[\overline{X}_1]$?
+\item $\E[\overline{X}_2]$?
+\item $Var(\overline{X}_1)$?
+\item $Var(\overline{X}_2)$?
+\end{itemize}
+
+\bigskip
+
+\textbf{(c)}(5pts). Now, for $X_1$, draw 5000 samples of size $N$=6. Get the mean and compute the 95\% confidence interval each time.  What portion of the confidence intervals you computed include the true expectation? Repeat this for $X_2$.
+
+\smallskip
+
+\textbf{(d)}(5pt) Repeat (c) for samples of size 6, 20, 50, and 500. Report the coverage probability for each of your eight simulations in a table.  How do your results change?  What differences do you see between {\tt X1} and {\tt X2}?
+
+\textbf{(e)}(2pt) Explain your findings in parts (c) and (d).
+
+\end{document}
