@@ -130,6 +130,49 @@ Here we use the fact that $\sum_{x \in X} p(x) = 1$, meaning the sum of the prob
 
 \section{Joint Distributions}
 
-Head over to Teppei Yamamoto's slides.
+Two random variables $X$ and $Y$ have the {\red joint probability mass function} $p(x, y)$. This follows the same rules as a regular distribution function, in that the sum of all possible outcomes results must be $1$ and no values are negative. In other words $\sum_{y \in Y} \sum_{x \in X} p(x, y) = 1$.
+
+Sometimes we want to obtain $p(y)$ from this joint distribution. This is called {\red marginalizing} probability function.
+
+\[
+p(y) = \sum_{x \in X} p(x, y) = \sum_{x \in X} Pr(X = x, Y = y)
+\]
+
+Looks similar for continuous random variables. They must sum to $1$ and can be marginalized. If $X, Y \in \mathbb{R}$, then $\int_{-\infty}^\infty \int_{-\infty}^\infty p(x, y)\,dy\,dx = 1$. Marginalization looks like
+
+\[
+p(y) =  \int_{-\infty}^\infty p(x, y)\,dx
+\]
+
+\section{Conditional Probability}
+
+Working just with continuous distributions, let's think about the conditional PDF of $Y$ given $X$. We write it as $p(y|x)$. Using the multiplicative rule of probability, we can rewrite this as
+
+\[
+p(y|x) = \frac{p(x, y)}{p(x)}
+\]
+
+We can also summarize this conditional distribution with the expectation function, but I leave that for a future problem set.
+
+\section{Independence}
+
+Note that if two distributions are {\red independent}, then we can write $p(x, y) = p(x)p(y)$ for all $x$ and $y$. This implies that
+
+\begin{align*}
+p(y|x) &= \frac{p(x, y)}{p(x)} \\
+&= \frac{p(x)p(y)}{p(x)} \\
+&= p(y) \\
+\end{align*}
+
+Furthermore, this has implications for $E[XY]$. Imagine $X$ and $Y$ are continuous random variables.
+
+\begin{align*}
+\E[XY] &= \int_{-\infty}^\infty \int_{-\infty}^\infty xyp(x,y) \, dy \, dx \\
+&= \int_{-\infty}^\infty \int_{-\infty}^\infty xyp(x)p(y) \, dy \, dx \\
+&= \int_{-\infty}^\infty xp(x)\, dx\,\, \int_{-\infty}^\infty yp(y) \, dy \\
+&= \E[X]\E[Y]
+\end{align*}
+
+When $X$ and $Y$ are independent conditional on $Z$, we call this {\red conditional independence} and we can write it as $p(x, y |z) = p(x|z) p(y|z)$. This intuitively just means that for some realization of $Z$, $X$ and $Y$ are unrelated.
 
 \end{document}
