@@ -2,6 +2,9 @@
 layout: page
 title: Teaching
 ---
+
+[200d Week 1 Notes](/teaching/200Dwk1.zip)
+
 ## Undergraduate Data Analysis
 This section will contain resources and notes for various undergraduate classes that use data analysis.
 
