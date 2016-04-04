@@ -119,7 +119,7 @@ What if we have long answers that take a long time to run? We can set it to cach
 someLongFunction(x)
 @
 
-Because this is \latex we can just add math as we normally would,
+Because this is LaTeX we can just add math as we normally would,
 
 \begin{align*}
 	\E[aX] &= \sum_{x \in X} ax p(x) \\
