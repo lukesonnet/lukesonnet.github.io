@@ -3,14 +3,6 @@ layout: page
 title: Teaching
 ---
 
-## 200d Week 1 Section
-
-* [Probability Review pdf](200d_probability_review.pdf)
-* [Probability Review tex](200d_probability_review.tex)
-* [R Review .pdf](200d_r_manual.pdf)
-* [R Review .R](200d_r_manual.R)
-* [Example pset .Rnw](sonnet_pset1.Rnw)
-
 ## Undergraduate Data Analysis
 This section will contain resources and notes for various undergraduate classes that use data analysis.
 
