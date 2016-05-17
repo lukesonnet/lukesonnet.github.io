@@ -10,7 +10,7 @@ Hello! My name is Luke Sonnet, I am a third year PhD student in Political Scienc
 
 I am mostly interested in electoral accountability, although I also care about comparative political institutions, party formation, Venezuelan politics, and machine learning in the social sciences. My recent work uses experimental and observational evidence to analyze the effect of anti-corruption campaigns on political participation. I have also collaborated with others on an experimental study of election fraud in Ghana.
 
-Recent work with George Derpanopoulos uses machine learning techniques to estimate the supply of foreign fighters to the civil war in Syria and Iraq and I am in the process of developing tools to improve the interpretability of complex functional forms.
+Recent work with George Derpanopoulos uses [machine learning techniques to estimate the supply of foreign fighters to the civil war in Syria and Iraq](https://www.dropbox.com/s/1ny0cewhyv2o4vb/derpanopoulos_sonnet_ff.pdf?dl=0) and I am in the process of developing tools to improve the interpretability of complex functional forms.
 
 I am also interested in improving political science education for the large number of undergraduate students who take courses in the discipline. To that end I helped design and teach a course with Miriam Golden that uses data analysis and active learning in lab to explore the determinants and consequences of political corruption.
 
