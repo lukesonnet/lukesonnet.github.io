@@ -3,9 +3,9 @@ layout: page
 title: Software
 ---
 
-## [KRLS in Julia](https://github.com/lukesonnet/krls)
+## [KRLS in Julia](https://github.com/lukesonnet/KRLS.jl)
 
-Kernel Regularized Least Squares ([paper here](http://www.stanford.edu/~jhain/Paper/PA2014a.pdf)) is a flexible machine learning technique for fitting complex non-linear models. While quite powerful, the implementation in the R language can become quite slow with datasets over 1,000 observations. I am working with Chad Hazlett to improve this performance; in the meantime, I have rewritten the package using the Julia language, speeding up fitting and interpretation 10-20 times. You can find the script on [my GitHub here](https://github.com/lukesonnet/krls).
+Kernel Regularized Least Squares ([paper here](http://www.stanford.edu/~jhain/Paper/PA2014a.pdf)) is a flexible machine learning technique for fitting complex non-linear models. While quite powerful, the implementation in the R language can become quite slow with datasets over 1,000 observations. I am working with Chad Hazlett to improve this performance; in the meantime, I have rewritten the package using the Julia language, speeding up fitting and interpretation 10-20 times. You can find the script on [my GitHub here](https://github.com/lukesonnet/KRLS.jl).
 
 ## [Rvoteview](https://github.com/JeffreyBLewis/Rvoteview)
 
