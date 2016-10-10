@@ -3,8 +3,15 @@ layout: page
 title: Teaching
 ---
 
+I have helped teach an undergraduate data analysis class focused on the causes and consequences of political and a graduate course on causal inference. Below are some relevant materials I have collected and presented that may be of use to others.
+
+## Causal inference
+
+* [An introduction to (robust) standard errors (pdf)](/teaching/inference/200d_standard_errors.pdf) [(Rmd)](/teaching/inference/200d_standard_errors.Rmd)
+* [An introduction to using R (data frames, simple models, simulations, sampling, and functions) (pdf)](/teaching/inference/200d_r_manual.pdf) [(Rmd)](/teaching/inference/200d_r_manual.Rmd)
+* [Visualizing selection on observables (pdf)](/teaching/inference/200d_soo.pdf) [(Rmd)](/teaching/inference/200d_soo.Rmd)
+
 ## Undergraduate Data Analysis
-This section will contain resources and notes for various undergraduate classes that use data analysis.
 
 ### Resources
 
