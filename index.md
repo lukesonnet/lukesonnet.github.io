@@ -5,7 +5,7 @@ title: Home
 
 ## Home
 
-![Mt. Whitney](/assets/whitney.jpg){: align="right" height="220.4px" width="290px" margin-left="10px"}
+![Mt. Whitney](/assets/whitney.jpg){: align="right" height="220.4px" width="290px" style="margin-left: 10px"}
 Hello! My name is Luke Sonnet, I am a fourth year PhD student in Political Science at UCLA.
 
 I am mostly interested in electoral accountability, although I also care about comparative political institutions, party formation, development and governance, Venezuelan politics, and machine learning in the social sciences. My recent work uses experimental and observational evidence to analyze the effect of anti-corruption campaigns on political participation. I have also collaborated with others on an experimental study of election fraud in Ghana, and an application of a machine learning technique to estimate the supply of foreign fighters to the civil war in Syria and Iraq. I am in the process of developing tools to improve the interpretability of complex functional forms.
