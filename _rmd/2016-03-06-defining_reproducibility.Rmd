@@ -2,8 +2,8 @@
 title: "Defining Reproducibility"
 author: "Luke Sonnet"
 date: "March 6, 2016"
-published: false
-status: process
+published: true
+status: 
 ---
 
 *Edit: Nosek and friends had [similar thoughts.](http://retractionwatch.com/2016/03/07/lets-not-mischaracterize-replication-studies-authors/)*
