@@ -88,3 +88,5 @@ rmd2md <- function( path_site = getwd(),
   }
   invisible()
 }
+#setwd("C:/Dropbox/website/lukesonnet.github.io/")
+#rmd2md()
