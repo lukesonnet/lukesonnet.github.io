@@ -15,9 +15,6 @@ author:
   name:           'Luke Sonnet'
   url:            https://twitter.com/LukeSonnet
 
-exclude:
-  - teaching/stata/
-
 paginate:         1
 paginate_path:    "/thoughts/page:num"
 # Custom vars
