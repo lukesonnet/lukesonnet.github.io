@@ -20,6 +20,7 @@ An official package has now been released by Susan Athey and friends and can be 
 ## Summarizing TIFF Data by Polygons in Shapefiles
 
 A brief introduction to how to trim and spatially summarize data in tiff format by polygon shapefiles. Useful for averaging night time luminosity data by political district, for example.
+
 * [Main tutorial [HTML]](https://www.dropbox.com/s/e9kh6hbi72ry0ka/using_rgdal_maptools.html?dl=0) [[Rmd]](https://www.dropbox.com/s/fbqrbnl1e22l3wm/using_rgdal_maptools.Rmd?dl=0) [[zip with all supporting files for replication]](https://www.dropbox.com/s/b6imt8ds45g88ci/using_rgdal_maptools.zip?dl=0)
 
 ## Downloading Facebook and Twitter Data using Python

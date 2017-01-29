@@ -17,6 +17,6 @@ Kernel Regularized Least Squares ([paper here](http://www.stanford.edu/~jhain/Pa
 
 ## R Scripts
 
-### [Cluster Robust Standard Errors](https://lukesonnet.github.io/teaching/clusterRSE.R)
+### [Cluster Robust Standard Errors](https://www.dropbox.com/s/4snaqhkp0rhq8su/clusterRSE.R?dl=0)
 
 This is yet another function to compute cluster robust standard errors in R. Adapted from the script written by Mahmood Arai, I make it a bit more flexible and match the method to that used by Stata's cluster command. There is no separate documentation, but comments in the code itself hopefully make its inputs and outputs clear.
