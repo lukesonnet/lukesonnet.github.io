@@ -17,14 +17,15 @@ This document is not an introduction to `R`, rather it is a introduction to the 
 
 ```{r}
 ## Set working directory
-setwd("C:/Dropbox/teaching/PS200D/2016/section/01IntroProbTexR/")
+setwd("C:/Dropbox/teaching/PS200D/2017/section/01IntroProbTexR/")
 ```
 
 # Working with data frames
 
 Data frames are the workhorses of data analysis in `R`. We can easily load in some data from a csv file
 ```{r}
-qog <- read.csv("http://lukesonnet.github.io/teaching/rmd/qog_data.csv")
+qog <- read.csv("http://lukesonnet.github.io/teaching/inference/qog_data.csv",
+                stringsAsFactors = F)
 head(qog)
 ```
 
@@ -86,7 +87,7 @@ summary(lmAdd)
 lmAdd$coefficients
 ```
 
-Now let's run an interactive model and transform  Note that it will add the base terms automatically if you do the multiplication in the formula.
+Now let's run an interactive model and transform one where we transform one of our outcomes. Note that it will add the base terms automatically if you do the multiplication in the formula.
 
 ```{r}
 ## Interactive model
@@ -96,6 +97,7 @@ summary(lmInt)
 
 plot(qog$mdm, qog$enep)
 plot(log(qog$mdm), qog$enep)
+
 ## Quadratic with log
 lmQuad <- lm(enep ~ ethFrac + log(mdm),
             data = qog)
@@ -105,7 +107,8 @@ summary(lmQuad)
 I will demonstrate logistic regression with a dataset of grad student admissions.
 
 ```{r}
-ad <- read.csv("http://www.stat.ucla.edu/~handcock/216/datasets/BINARYEX/binary.csv") 
+ad <- read.csv("http://www.stat.ucla.edu/~handcock/216/datasets/BINARYEX/binary.csv",
+               stringsAsFactors = F) 
 head(ad)
 logitOut <- glm(admit ~ gre + gpa + rank,
                 data = ad,
@@ -208,14 +211,14 @@ myMean <- function(x) {
 myMean(c(1,2,3,4))
 ```
 
-Let's try a more complicated example. sImagine we wanted to generate data using the following model $y = \beta x + \epsilon$ where $x \sim N(0, 1)$ and $\epsilon \sim N(0, \tau^2)$. Let's write a function that takes $n$, the number of observations, $\beta$, the effect of $x$ on $y$, and $\tau$, the noise in the model. Let's return the OLS estimate of $\beta$, $\hat\beta$.
+Let's try a more complicated example. sImagine we wanted to generate data using the following model $y = \beta x + \epsilon$ where $x \sim N(0, 1)$ and $\epsilon \sim N(0, \zeta^2)$. Let's write a function that takes $n$, the number of observations, $\beta$, the effect of $x$ on $y$, and $\zeta$, the noise in the model. Let's return the OLS estimate of $\beta$, $\hat\beta$.
 
 ```{r}
-betaHat <- function(n, beta, tau) {
+betaHat <- function(n, beta, zeta) {
   ## Generate x
   x <- rnorm(n)
   ## Generate eps
-  eps <- rnorm(n, sd = tau)
+  eps <- rnorm(n, sd = zeta)
   ## Generate y
   y <- beta * x + eps
   
@@ -228,13 +231,13 @@ betaHat <- function(n, beta, tau) {
 }
 
 ## An example
-betaHat(n = 200, beta = 0.5, tau = 3)
+betaHat(n = 200, beta = 0.5, zeta = 3)
 ```
 
 Now we can use this function to see how well OLS performs under certain conditions. Let's run this function 100 times and compare the boxplots of the different values of $\hat\beta$.
 
 ```{r}
-## Set some values (all besides tau)
+## Set some values (all besides zeta)
 its <- 100
 N <- 200
 trueBeta <- 2
@@ -244,8 +247,8 @@ betasLowNoise <- numeric(its)
 betasHighNoise <- numeric(its)
 
 for (i in 1:its) {
-  betasLowNoise[i] <- betaHat(n = N, beta = trueBeta, tau = 1)
-  betasHighNoise[i] <- betaHat(n = N, beta = trueBeta, tau = 3)
+  betasLowNoise[i] <- betaHat(n = N, beta = trueBeta, zeta = 1)
+  betasHighNoise[i] <- betaHat(n = N, beta = trueBeta, zeta = 3)
 }
 
 ## Plot outcomes
@@ -255,11 +258,10 @@ boxplot(betasLowNoise, betasHighNoise)
 As expected, when there is less noise in the model, the variance of $\hat\beta$ will be less, and we are more likely to get the an estimate closer to the true value. We can also repeatedly call functions using `replicate`, a very useful function. Also, setting the seed is easier with `replicate` than it is with for loops.
 ```{r}
 set.seed(20160324)
-betasLowNoise <- replicate(its, betaHat(n = N, beta = trueBeta, tau = 1))
+betasLowNoise <- replicate(its, betaHat(n = N, beta = trueBeta, zeta = 1))
 set.seed(20160324)
-betasHighNoise <- replicate(its, betaHat(n = N, beta = trueBeta, tau = 3))
+betasHighNoise <- replicate(its, betaHat(n = N, beta = trueBeta, zeta = 3))
 
 ## Plot outcomes
 boxplot(betasLowNoise, betasHighNoise)
 ```
-
