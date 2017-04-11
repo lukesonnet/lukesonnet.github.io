@@ -9,7 +9,6 @@ highlight:        pygments
 title:            Luke Sonnet
 description:      'PhD Student, Political Science, UCLA'
 url:              http://lukesonnet.github.io
-#baseurl:          /
 
 author:
   name:           'Luke Sonnet'

@@ -5,7 +5,7 @@ title: Home
 
 ## Home
 
-![Mt. Whitney](assets/whitney.jpg){: align="right" height="220.4px" width="290px" style="margin-left: 5px"}
+![Mt. Whitney](/assets/whitney.jpg){: align="right" height="220.4px" width="290px" style="margin-left: 5px"}
 Hello! My name is Luke Sonnet, I am a PhD student in Political Science at UCLA.
 
 I am mostly interested in electoral accountability, although I also care about broader issues in development and governance as well as machine learning in the social sciences. I have recently conducted field work in Pakistan on effect of increased communication between parliamentarians and constituents and in Northeastern Nigeria on the effects of violence and displacement. Other projects use experimental and observational evidence on the effect of anti-corruption campaigns on political participation, fine-grained spatial data to study the relationship between governance and electricity load shedding in Pakistan, and a custom machine learning technique to estimate correlates of foreign fighter supply to the civil war in Syria and Iraq.
