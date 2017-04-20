@@ -34,7 +34,24 @@ $$\hat{\bbeta} = (\X^\top \X)^{-1} \X^\top \y$$
 
 This is just an estimate of the coefficients. We also would like to understand the variance of this estimate to quantify our uncertainty and possibly to perform significance testing. We can derive an explicit function that represents the variance of our estimates, $\V[\hat{\bbeta}|\X]$, given that $\X$ is fixed.
 
-First note that,
+What we are interested in is $\V[\hat{\bbeta}|\X]$, which is the variance of all of our estimated coefficients $\hat{\bbeta}$ and the covariance between our coefficients. We can represent this as
+
+$$
+\V[\hat{\bbeta}|\X] = 
+\begin{bmatrix}
+\V[\hat{\beta}_0|\X] & \text{Cov}[\hat{\beta}_0, \hat{\beta}_1|X] & \cdots & \text{Cov}[\hat{\beta}_0, \hat{\beta}_p|X] \\
+\text{Cov}[\hat{\beta}_1, \hat{\beta}_0|X] & \V[\hat{\beta}_1|\X] & \cdots & \text{Cov}[\hat{\beta}_1, \hat{\beta}_p|X] \\
+\vdots & \vdots & \ddots & \vdots \\
+\text{Cov}[\hat{\beta}_p, \hat{\beta}_0|X] & \text{Cov}[\hat{\beta}_p, \hat{\beta}_1|X] & \cdots & \V[\hat{\beta}_p|\X]
+\end{bmatrix}
+$$
+Our goal is to estimate this matrix. Why? Often because we want the standard errors of the $j$th coefficient, $\text{se}(\hat{\beta_j})$. We get this by taking the square root of the diagonal of $\V[\hat{\bbeta}|\X]$. Therefore, our focal *estimand* is,
+
+$$
+\text{se}(\hat{\bbeta}) = \begin{bmatrix} \sqrt{\V[\hat{\beta}_0|\X]} \\ \sqrt{\V[\hat{\beta}_1|\X]} \\ \vdots \\ \sqrt{\V[\hat{\beta}_p|\X]} \end{bmatrix}
+$$
+
+To show how we get to an estimate for this quantity, first note that,
 $$
 \begin{aligned}
 \hat{\bbeta} &= (\X^\top \X)^{-1} \X^\top \y \\
@@ -44,7 +61,6 @@ $$
 \end{aligned}
 $$
 
-Then,
 $$
 \begin{aligned}
 \V[\hat{\bbeta}|\X] &= \E[(\hat{\bbeta} - \bbeta) (\hat{\bbeta} - \bbeta)^\top|\X] \\
@@ -54,9 +70,13 @@ $$
 \end{aligned}
 $$
 
-This then is our answer for the variance-covariance matrix of our coefficients $\hat{\bbeta}$. While we have $\X$, we do not have $\E[\bepsilon \bepsilon^\top |\X]$, which is the variance-covariance matrix of the errors. Furthermore, this matrix has $n \times n$ unknown parameters that define the variance of each error and the correlation of errors. In theory, we could know the correlation between the error across observations, known as serial correlation, or whether variance of the errors is constant across observations, known as homoskedasticity.
+This then is our answer for the variance-covariance matrix of our coefficients $\hat{\bbeta}$. While we have $\X$, we do not have $\E[\bepsilon \bepsilon^\top |\X]$, which is the variance-covariance matrix of the errors. What is this matrix? It is how all of the unobserved errors correlate with each other and their variance.
 
-This is a crucial point: we could have very complicated error structures but we cannot estimate the full matrix $\E[\bepsilon \bepsilon^\top |\X]$. We have to make assumptions about the error structure. Do all observations have errors with the same variance? Then we have homoskedasticity. Google heteroskedasticity for graphical representations of when this is violated. Do observations have errors that are correlated in groups? Then you should build this structure into your estimates of $\E[\bepsilon \bepsilon^\top |\X]$. In this document, I run through three of the most common cases. The standard case when we assume spherical errors (no serial correlation and no heteroskedasticity), the case where we allow heteroskedasticity, and the case where there is grouped correlation in the errors. In all cases we assume that the conditional mean of the error is $0$. Precisely $\E[\epsilon|X] = 0$.
+Furthermore, this matrix has $n \times n$ unknown parameters that define the variance of each error and the correlation of errors. In theory, we could know the correlation between the error across observations, known as serial correlation, or whether variance of the errors is constant across observations, known as homoskedasticity.
+
+This is a crucial point: we could believe that there are very complicated error structures, but we generally cannot estimate the full matrix $\E[\bepsilon \bepsilon^\top |\X]$. We have to make assumptions about the error structure. Do all observations have errors with the same variance? Then we have homoskedasticity. Google heteroskedasticity for graphical representations of when this is violated. Do observations have errors that are correlated in groups? Then you should build this structure into your estimates of $\E[\bepsilon \bepsilon^\top |\X]$. In this document, I run through three of the most common cases. The standard case when we assume spherical errors (no serial correlation and no heteroskedasticity), the case where we allow heteroskedasticity, and the case where there is grouped correlation in the errors. In all cases we assume that the conditional mean of the error is $0$. Precisely $\E[\epsilon|X] = 0$.
+
+**If we get our assumptions about the errors wrong, then our standard errors will be biased, making this topic pivotal for much of social science.**
 
 # Standard Estimation (Spherical Errors)
 
@@ -74,6 +94,7 @@ $$
 \begin{aligned}
 \V[\hat{\bbeta}|\X] &= (\X^\top \X)^{-1} \X^\top \E[\bepsilon \bepsilon^\top |\X] \X (\X^\top \X)^{-1} \\
 &= (\X^\top \X)^{-1} \X^\top \sigma^2 \mathbf{I} \X (\X^\top \X)^{-1} \\
+&= \sigma^2 (\X^\top \X)^{-1} \X^\top \X (\X^\top \X)^{-1} \\
 &= \sigma^2 (\X^\top \X)^{-1} 
 \end{aligned}
 $$
@@ -328,6 +349,6 @@ Review your notes for the proof that $\hat{\bbeta}$ is an unbiased estimator for
 
 We have been very focused on the variance-covariance of $\bepsilon$, but not on how those errors have been distributed. For example, it is often stated that we assume that the errors are **normally distributed**. The normality of the errors is not necessary for unbiasedness of either $\hat{\bbeta}$ or $\widehat{\V[\hat{\bbeta}]}$. So why do people make that assumption?
 
-- Normality is somewhat important for significance testing. Specifically, with normal, independent standard errors we can be assured the $\hat{\bbeta}$ is distributed noormally even in finite samples. This means we can get $t$-statistic that is actually $t$ distributed. Thus it is important for significance testing, but not for the standard errors themselves. Nonetheless, even without normal errors, $\hat{\bbeta}$ will still be distributed normally asymptotically, meaning as the sample size goes to $\infty$. Furthermore, our test statistic will also be normally distributed and thus asymptotically significance testing will also be valid. These are the result of the central limit theorem. This generally means that if you have a very large sample (where "very large" is intentionally vague), then the assumption is not necessary for significance testing. However, in finite samples, the normality assumption guarantees that your confidence intervals and p-values are correct.
+- Normality is somewhat important for significance testing. Specifically, with normal, independent standard errors we can be assured the $\hat{\bbeta}$ is distributed normally even in finite samples. This means we can get $t$-statistic that is actually $t$-distributed. Thus it is important for significance testing, but not for the standard errors themselves. Nonetheless, even without normal errors, $\hat{\bbeta}$ will still be distributed normally asymptotically, meaning as the sample size goes to $\infty$. Furthermore, our test statistic will also be normally distributed and thus asymptotically significance testing will also be valid. These are the result of the central limit theorem. This generally means that if you have a very large sample (where "very large" is intentionally vague), then the assumption is not necessary for significance testing. However, in finite samples, the normality assumption guarantees that your confidence intervals and p-values are correct.
 - Normality (or perhaps other *specific* distributional assumptions) is necessary for the "best" or minimum variance of the OLS estimator in finite samples.
 - Normality of the errors is needed for the standard normal linear model if you fit it using maximum likelihood. You will learn about this later in the sequence; it returns the same coefficients as OLS, but the framework is different. So this is largely about how you conceptualize regression.
