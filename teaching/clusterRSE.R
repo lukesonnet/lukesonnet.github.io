@@ -18,7 +18,7 @@
 ## $vcovCL: The new cluster robust vcov matrix
 ## $coeftest: A test of the coefficients significance with the new vcov
 
-clusterRSE <- function(fm, clusterName, df, correction = 'fancy'){
+clusterRSE <- function(fm, cluster_name, df, correction = 'fancy'){
   
   library(sandwich)
   library(lmtest)
