@@ -23,20 +23,15 @@ clusterRSE <- function(fm, clusterName, df, correction = 'fancy'){
   library(sandwich)
   library(lmtest)
   
-  ## Get variable names
-  vars <- all.vars(formula(fm)[[3]])
-  ## Get the model.matrix
-  modelMatrix <- df[complete.cases(df[, c(vars)]), c(vars, clusterName)]
-  
   ## Extract all of the clusters
-  cl <- modelMatrix[,clusterName]
+  cl <- df[row.names(fm$model), cluster_name]
   ## Number of clusters
   m <- length(unique(cl))
-  ## Number of covariates (minus the column of cluster IDs but plus one for constant)
-  p <- ncol(modelMatrix)
+  ## Number of covariates (minus the outcome var but plus one for constant)
+  p <- ncol(fm$model)
   ## Number of observations 
-  n <- nrow(modelMatrix)
-
+  n <- nrow(fm$model)
+  
   ## Set the finite sample correction
   if (correction == 'fancy') {
     dfc <- (m / (m - 1)) * ((n - 1) / (n - p))
@@ -54,9 +49,9 @@ clusterRSE <- function(fm, clusterName, df, correction = 'fancy'){
   uj  <- apply(estfun(fm), 2, function(x) tapply(x, cl, sum))
   ## Finalize the cluster robust variance-covariance matrix
   vcovCL <- dfc*sandwich(fm, meat=crossprod(uj)/n)
-
-  print(dfc)
-    
+  
+  #print(dfc)
+  
   out = list()
   out$model <- fm
   out$vcovCL <- vcovCL
