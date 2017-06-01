@@ -59,7 +59,8 @@ html {
   color: rgba(255,255,255,.5);
   background-color: #202020;
 }
-@media (min-width: 36em) {
+
+@media (min-width: 30em) {
   .sidebar {
     position: fixed;
     top: 0;
@@ -67,6 +68,12 @@ html {
     bottom: 0;
     width: 18rem;
     text-align: left;
+  }
+}
+
+@media screen {
+  .sidebar {
+    overflow-y: auto;
   }
 }
 
@@ -85,7 +92,7 @@ html {
   color: #fff;
   margin-top: 0;
   font-family: georgia;
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 
 /* Sidebar nav */
@@ -103,6 +110,15 @@ a.sidebar-nav-item:focus {
 .sidebar-nav-item.active {
   font-weight: bold;
 }
+
+/* Sidebar img */
+.sidebar-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+
 
 /* Sticky sidebar
  *
