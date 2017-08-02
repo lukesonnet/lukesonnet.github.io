@@ -105,6 +105,7 @@ h4, h5, h6 {
 
 /* Body text */
 p {
+  font-size: 80%;
   margin-top: 0;
   margin-bottom: 1rem;
 }
@@ -118,6 +119,10 @@ strong {
 ul, ol, dl {
   margin-top: 0;
   margin-bottom: 1rem;
+}
+
+li {
+  font-size: 80%;
 }
 
 dt {
