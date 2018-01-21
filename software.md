@@ -5,23 +5,31 @@ title: Software and Data
 
 ## Software
 
+### R packages
+
 #### [KRLS](https://github.com/lukesonnet/KRLS)
 
 This package, written with Chad Hazlett, extends Kernel Regularized Least Squares ([paper here](http://www.stanford.edu/~jhain/Paper/PA2014a.pdf)) to allow for modeling binary outcomes as well as improving the speed of the KRLS software. We also add the ability to add weights and retrieve (cluster) robust standard errors. KRLS is a flexible machine learning technique introduced by Chad Hazlett and Jens Hainmueller for fitting complex non-linear models to reduce misspecification bias.
 
 * [KRLS in Julia](https://github.com/lukesonnet/KRLS.jl) - I have also written KRLS in Julia, which is very fast. This version does not yet include the extension to binary models, weighting, and clustered standard errors.
 
+#### [estimatr](estimatr.declaredesign.org)
+
+Part of the [DeclareDesign](http://declaredesign.org/) family of packages, this package contains easy-to-use estimators for linear regression, differences-in-means, and the Horvitz-Thompson estimatr with robust standard errors while using C++ to improve speed where it counts the most.
+
+#### [Rvoteview](https://github.com/voteview/Rvoteview)
+
+This R package provides an API to access the [voteview.com](voteview.com) database, as well as helper functions to work with the downloaded data.
+
+### Other projects
+
 #### [VoteView](https://voteview.com)
 
 I worked with Jeff Lewis, Adam Boche, and Aaron Rudkin to rebuild the entire Voteview database, website, and API to provide the roll calls used often in DW-NOMINATE ideal point estimation. Our work includes creating a [new Voteview.com website](https://voteview.com), accessible to all including researchers, students, and interested citizens.
 
-#### [Rvoteview](https://github.com/JeffreyBLewis/Rvoteview)
-
-This R package provides an API to access the Voteview database, as well as helper functions to work with the downloaded data.
-
 #### [pynominate](https://github.com/lukesonnet/pynominate)
 
-This python module provides methods for fitting the DW-NOMINATE scores that are used on [Voteview.com](https://voteview.com). Currently only works on our server but will be extended for general use.
+This python module provides methods for fitting the DW-NOMINATE scores that are used on [Voteview.com](https://voteview.com). Currently only works on our server but hopefully will be extended for general use.
 
 ## Data
 
