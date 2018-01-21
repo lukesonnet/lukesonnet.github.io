@@ -23,7 +23,7 @@ This R package provides an API to access the [voteview.com](voteview.com) databa
 
 ### Other projects
 
-#### [VoteView](https://voteview.com)
+#### [voteview.com](https://voteview.com)
 
 I worked with Jeff Lewis, Adam Boche, and Aaron Rudkin to rebuild the entire Voteview database, website, and API to provide the roll calls used often in DW-NOMINATE ideal point estimation. Our work includes creating a [new Voteview.com website](https://voteview.com), accessible to all including researchers, students, and interested citizens.
 
