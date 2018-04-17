@@ -1,0 +1,13 @@
+---
+layout: nil
+---
+
+div.toshow
+{
+    display: none;
+}
+
+ul.hidden
+{
+    list-style-type: none;
+}

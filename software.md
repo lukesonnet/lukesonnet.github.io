@@ -3,9 +3,7 @@ layout: page
 title: Software and Data
 ---
 
-## Software
-
-### R packages
+## R packages
 
 #### [KRLS](https://github.com/lukesonnet/KRLS)
 
@@ -21,7 +19,7 @@ Part of the [DeclareDesign](http://declaredesign.org/) family of packages, this 
 
 This R package provides an API to access the [voteview.com](voteview.com) database, as well as helper functions to work with the downloaded data.
 
-### Other projects
+## Other projects
 
 #### [voteview.com](https://voteview.com)
 
