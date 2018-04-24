@@ -8,7 +8,7 @@ title: Research
 
 function showDiv(divName) {
     var x = document.getElementById(divName);
-    if (x.style.display === "none") {
+    if (x.style.display == "none" || x.style.display == "") {
         x.style.display = "block";
     } else {
         x.style.display = "none";
@@ -20,9 +20,9 @@ function showDiv(divName) {
 
 * **Improving political communication: a field experiment in Pakistan** - With Miriam Golden (UCLA) and Saad Gulzar (Stanford) <a onclick='showDiv("ivr")'>(+)</a>
 
-<div id="ivr" style="display:none">
+<div id="ivr" class="toshow">
 
-<ul><ul style="list-style-type:none">
+<ul><ul class="hidden">
 <li> - Funded by the International Growth Center, Empirical Studies of Conflict, and the Abdul Latif Jameel Poverty Action Lab.</li>
 <li> - <a href="https://www.theigc.org/wp-content/uploads/2017/08/Golden-et-al-2017-Final-report_v2.pdf">Pilot report for IGC</a></li>
 <li>&nbsp;</li>
@@ -34,9 +34,9 @@ function showDiv(divName) {
 
 * **Social spillovers and female political participation in khyber pakhtunkhwa** - With Saad Gulzar (Stanford) and Muhammad Yasir Khan (UC Berkeley) <a onclick='showDiv("pkreg")'>(+)</a>
 
-<div id="pkreg" style="display:none">
+<div id="pkreg" class="toshow">
 
-<ul><ul style="list-style-type:none">
+<ul><ul class="hidden">
 <li> - Funded by the International Growth Center</li>
 <li>&nbsp;</li>
 <li> There exists a large political participation gap between the genders in Pakistan, including at the preliminary level of voter registration. There are at least 10 million fewer registered women than men in Pakistan, and this project seeks to explain this gap by studying how social networks condition the political participation of males and females in Khyber Pakhtunkhwa.</li>
@@ -49,9 +49,9 @@ function showDiv(divName) {
 
 * **Kernel Regularized Logistic Regression: avoiding misspecification bias while maintaining interpretability for binary outcome regressions** - With Chad Hazlett (UCLA) <a onclick='showDiv("krlogit")'>(+)</a>
 
-<div id="krlogit" style="display:none">
+<div id="krlogit" class="toshow">
 
-<ul><ul style="list-style-type:none">
+<ul><ul class="hidden">
 <li> - <a href="https://github.com/lukesonnet/KRLS">Extension of KRLS R package</a></li>
 <li> - <a href="/software/">Also see the software page</a></li>
 <li> - Draft forthcoming</li>
@@ -64,9 +64,9 @@ function showDiv(divName) {
 
 * **Simplifying complex functional forms for theoretical interpretability: estimating non-linear relationships in multiple stages** <a onclick='showDiv("func")'>(+)</a>
 
-<div id="func" style="display:none">
+<div id="func" class="toshow">
 
-<ul><ul style="list-style-type:none">
+<ul><ul class="hidden">
 <li> - Draft available on request</li>
 <li>&nbsp;</li>
 <li> A number of machine learning techniques have improved prediction and analysis in the social sciences. While tools such as kernel regression, generalized additive models, or Kernel Regularized Least Squares do provide smooth conditional expectation functions (CEFs), they are often difficult to interpret with respect to the predictors of interest. This paper presents an approach that uses the partial derivatives of smooth CEFs at each observation as estimates of pointwise marginal effects. I then suggest predicting the variation in these pointwise marginal effects using the original predictors, providing a lower-order, more easily interpretable CEF. This provides a framework for flexible, interpretable, data-driven model fitting. I demonstrate that this method can perform as well as or better than several existing approaches and apply it to research on the onset of civil war.</li>
@@ -78,14 +78,14 @@ function showDiv(divName) {
 
 ### Estimating Ideology
 
-* Jeffrey B. Lewis, Adam Boche, Aaron Rudkin, and Luke Sonnet. Forthcoming. **"The new Voteview.com: preserving and continuing Keith Poole’s infrastructure for scholars, students, and observers of Congress"**. *Public Choice*. <a onclick='showDiv("vv")'>(+)</a>
+* Jeffrey B. Lewis, Adam Boche, Aaron Rudkin, and Luke Sonnet. Forthcoming. **"The new Voteview.com: preserving and continuing Keith Poole’s infrastructure for scholars, students, and observers of Congress"**. *Public Choice*. <a href="/assets/preprints/BocheEtAl_Voteview.pdf">[pre-print]</a> <a onclick='showDiv("vv")'>(+)</a>
 
-<div id="vv" style="display:none">
+<div id="vv" class="toshow">
 
-<ul><ul style="list-style-type:none">
+<ul><ul class="hidden">
+<li> - <a href="/assets/preprints/BocheEtAl_Voteview.pdf">Pre-print</a></li>
 <li> - <a href="https://voteview.com">Voteview.com</a></li>
 <li> - <a href="/software/">Also see the software page</a></li>
-<li> - Pre-print available soon</li>
 
 </ul></ul>
 
@@ -93,9 +93,9 @@ function showDiv(divName) {
 
 * **Estimating NOMINATE scores over time using penalized splines** - With Jeffrey B. Lewis (UCLA) <a onclick='showDiv("dyn")'>(+)</a>
 
-<div id="dyn" style="display:none">
+<div id="dyn" class="toshow">
 
-<ul><ul style="list-style-type:none">
+<ul><ul class="hidden">
 <li>First presented in 1997 and derived from members' complete roll-call voting records, DW-NOMINATE scores have become the most widely-used measure of the positions of members of Congress in an abstract "ideology" space. By assuming that individual legislators' positions cannot move freely over their careers, the DW-NOMINATE model produces estimates that can be compared across time. This feature has made DW-NOMINATE scores the basis of a great deal of research on political polarization (Binder, 2014; McCarty et al., 2006, for example). However, recent studies have raised concerns about the plausibility of the strong constraints on member's ideological trajectories that DW-NOMINATE imposes and about the effect that those constraints may have on the inferences that we make about how polarization has waxed and waned over the course of US history (Bateman and Lapinski, 2016, for example). In this paper, we develop a new and more flexible approach to estimating the trajectories of legislators' ideal points over time within the NOMINATE modeling framework. We use penalized spline functions (Wood, 2016) to model each legislator's ideal points over her career.  This approach allows us to consider a continuum of possible degrees of constraint and, in particular, to explore how the constraint that is placed on members' movements affects inferences about political polarization and our understanding of legislative behavior more generally. </li>
 
 </ul></ul>
