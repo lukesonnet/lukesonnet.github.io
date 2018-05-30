@@ -32,7 +32,7 @@ function showDiv(divName) {
 
 </div>
 
-* **Social spillovers and female political participation in khyber pakhtunkhwa** - With Saad Gulzar (Stanford) and Muhammad Yasir Khan (UC Berkeley) <a onclick='showDiv("pkreg")'>(+)</a>
+* **Social spillovers and female political participation in Khyber Pakhtunkhwa** - With Saad Gulzar (Stanford) and Muhammad Yasir Khan (UC Berkeley) <a onclick='showDiv("pkreg")'>(+)</a>
 
 <div id="pkreg" class="toshow">
 
