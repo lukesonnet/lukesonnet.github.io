@@ -31,6 +31,12 @@ This python module provides methods for fitting the DW-NOMINATE scores that are 
 
 ## Data
 
+#### [Pakistan 2018 General Election Candidate Scrutiny Forms](https://doi.org/10.7910/DVN/PX8JKY), with [Colin Cookman](https://colincookman.wordpress.com/)
+
+Also see the data on [GitHub here](https://github.com/colincookman/pakistan_candidate_scrutiny_18).
+
+These repositories host cleaned candidate scrutiny forms released by the Election Commission of Pakistan for prospective candidates for Pakistan's 2018 national and provincial assembly elections. The scrutiny forms consist of data released on tax payments from the Federal Board of Revenue (FBR), corruption cases from the the National Accountability Bureau (NAB), and oustanding loans from the State Bank of Pakistan (SBP).
+
 #### [Brazilian First Names and Gender Ratios](https://github.com/lukesonnet/brazilNames)
 
 This data set contains a list of ~76,500 Brazilian first names and how often each name is used for a male or female candidates in elections from 1998-2014 in Brazil. Thus it effectively works as a tool to classify the gender of any Brazilian (and perhaps Portuguese) name. The original data can be found on the Brazilian Electoral Tribunal's website [here](http://www.tse.jus.br/hotSites/pesquisas-eleitorais/candidatos.html).
