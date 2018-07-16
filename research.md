@@ -78,7 +78,7 @@ function showDiv(divName) {
 
 ### Estimating Ideology
 
-* Jeffrey B. Lewis, Adam Boche, Aaron Rudkin, and Luke Sonnet. Forthcoming. [**"The new Voteview.com: preserving and continuing Keith Poole’s infrastructure for scholars, students, and observers of Congress"**](https://doi.org/10.1007/s11127-018-0546-0). *Public Choice*. [[gated]](https://doi.org/10.1007/s11127-018-0546-0) <a href="/assets/preprints/BocheEtAl_Voteview.pdf">[pre-print]</a> <a onclick='showDiv("vv")'>(+)</a>
+* Jeffrey B. Lewis, Adam Boche, Aaron Rudkin, and Luke Sonnet. 2018. [**"The new Voteview.com: preserving and continuing Keith Poole’s infrastructure for scholars, students, and observers of Congress"**](https://doi.org/10.1007/s11127-018-0546-0). *Public Choice*, 176(1-2): 17-32. [[gated]](https://doi.org/10.1007/s11127-018-0546-0) <a href="/assets/preprints/BocheEtAl_Voteview.pdf">[pre-print]</a> <a onclick='showDiv("vv")'>(+)</a>
 
 <div id="vv" class="toshow">
 
