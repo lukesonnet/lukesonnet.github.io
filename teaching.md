@@ -65,7 +65,21 @@ Class .R files
 
 Datasets
 
-* [Quality of Government .csv file](https://raw.githubusercontent.com/lukesonnet/r_introduction/master/data/qog/qog_ts.csv) (right-click and save-as), [.pdf documentation (40MB)](https://www.dropbox.com/s/va4tydtimd1wakd/qog_bas_jan18.pdf?dl=0), [accompanying .R exercise file](https://www.dropbox.com/s/b9ghixbqel6m1tj/2_qog_data.R?dl=0)
-* [Pakistan 2018 candidate level election data](https://raw.githubusercontent.com/colincookman/pakistan_election_results_2018/master/pk_candidate_data_2018.csv) (right-click and save-as), [accompanying .R exercise file](https://www.dropbox.com/s/xw0tl79cm9861jr/2_pk_election.R?dl=0)
-* [CricInfo batting data .csv](https://www.dropbox.com/s/0yptp6u9ao8xixd/Ball-to-Ball.csv?dl=0), [accompanying .R exercise file](https://www.dropbox.com/s/kck4gfaojpgjsb4/2_cric_data.R?dl=0)
-* [PK Supreme Court Survey data .dta](https://www.dropbox.com/s/vjhf4j0rj47mjvl/Public%20Opinion%20Survey_Stata%20Data%20Set.dta?dl=0), [.docx documentation](https://www.dropbox.com/s/ntmbz4qqhj8ghxo/Supreme%2BCourt%2BSurvey%2BQuestions_AQ1.2%2B_150217_.docx?dl=0), [accompanying .R exercise file](https://www.dropbox.com/s/sx9hbdcbj3fu32u/2_supreme_court.R?dl=0)
+Quality of Government
+* [Data in .csv file](https://raw.githubusercontent.com/lukesonnet/r_introduction/master/data/qog/qog_ts.csv) (right-click and save-as)
+* [.pdf documentation (40MB)](https://www.dropbox.com/s/va4tydtimd1wakd/qog_bas_jan18.pdf?dl=0)
+* [accompanying .R exercise file](https://www.dropbox.com/s/b9ghixbqel6m1tj/2_qog_data.R?dl=0)
+
+Pakistan 2018 candidate level election data
+* [Data in .csv file](https://raw.githubusercontent.com/colincookman/pakistan_election_results_2018/master/pk_candidate_data_2018.csv) (right-click and save-as)
+* [accompanying .R exercise file](https://www.dropbox.com/s/xw0tl79cm9861jr/2_pk_election.R?dl=0)
+
+
+CricInfo batting data
+* [Data in .csv file](https://www.dropbox.com/s/0yptp6u9ao8xixd/Ball-to-Ball.csv?dl=0) (open and download in browser)
+* [accompanying .R exercise file](https://www.dropbox.com/s/kck4gfaojpgjsb4/2_cric_data.R?dl=0)
+
+PK Supreme Court Survey
+* [Data in .dta file](https://www.dropbox.com/s/vjhf4j0rj47mjvl/Public%20Opinion%20Survey_Stata%20Data%20Set.dta?dl=0)
+* [.docx documentation](https://www.dropbox.com/s/ntmbz4qqhj8ghxo/Supreme%2BCourt%2BSurvey%2BQuestions_AQ1.2%2B_150217_.docx?dl=0)
+* [accompanying .R exercise file](https://www.dropbox.com/s/sx9hbdcbj3fu32u/2_supreme_court.R?dl=0)
