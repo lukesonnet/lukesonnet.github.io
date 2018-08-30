@@ -50,3 +50,22 @@ However, I also will be teaching with Stata in some situations. To that end, I h
 
 * [Should the y-axis always go to zero?](http://byjustinfox.com/2014/12/14/the-rise-of-the-y-axis-zero-fundamentalists/) - Justin Fox
 * Don't use pie charts: see [here](http://www.gilliganondata.com/index.php/2009/12/02/how-succinctly-can-i-explain-why-pie-charts-are-evil/) and [here](http://www.perceptualedge.com/articles/08-21-07.pdf). For a counter-argument that there are may be a *few* times when a pie chart is okay, see [here](http://speakingppt.com/2013/03/18/why-tufte-is-flat-out-wrong-about-pie-charts/).
+
+### LUMS R Course
+
+Class .Rmd Files
+
+* [0: Getting Started](https://www.dropbox.com/s/ptnpckxbg77d7bp/0_getting_started.Rmd?dl=0)
+* [1: Basic R](https://www.dropbox.com/s/ilicjtak649btwv/1_basic_R.Rmd?dl=0)
+* [2: Manipulating data in R](https://www.dropbox.com/s/cxhb9cgplrb9rbf/2_manipulating_data.Rmd?dl=0)
+
+Class .R files
+
+* [2: Manipulating data in R lecture file](https://www.dropbox.com/s/tv0hgqvxdxv93g2/2_manipulating_data.R?dl=0)
+
+Datasets
+
+* [Quality of Government .csv file](https://raw.githubusercontent.com/lukesonnet/r_introduction/master/data/qog/qog_ts.csv) (right-click and save-as), [.pdf documentation (40MB)](https://www.dropbox.com/s/va4tydtimd1wakd/qog_bas_jan18.pdf?dl=0), [accompanying .R exercise file](https://www.dropbox.com/s/b9ghixbqel6m1tj/2_qog_data.R?dl=0)
+* [Pakistan 2018 candidate level election data](https://raw.githubusercontent.com/colincookman/pakistan_election_results_2018/master/pk_candidate_data_2018.csv) (right-click and save-as), [accompanying .R exercise file](https://www.dropbox.com/s/xw0tl79cm9861jr/2_pk_election.R?dl=0)
+* [CricInfo batting data .csv](https://www.dropbox.com/s/0yptp6u9ao8xixd/Ball-to-Ball.csv?dl=0), [accompanying .R exercise file](https://www.dropbox.com/s/kck4gfaojpgjsb4/2_cric_data.R?dl=0)
+* [PK Supreme Court Survey data .dta](https://www.dropbox.com/s/vjhf4j0rj47mjvl/Public%20Opinion%20Survey_Stata%20Data%20Set.dta?dl=0), [.docx documentation](https://www.dropbox.com/s/ntmbz4qqhj8ghxo/Supreme%2BCourt%2BSurvey%2BQuestions_AQ1.2%2B_150217_.docx?dl=0), [accompanying .R exercise file](https://www.dropbox.com/s/sx9hbdcbj3fu32u/2_supreme_court.R?dl=0)
