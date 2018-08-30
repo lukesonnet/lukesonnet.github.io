@@ -53,17 +53,17 @@ However, I also will be teaching with Stata in some situations. To that end, I h
 
 ### LUMS R Course
 
-Class .Rmd Files
+#### Class .Rmd Files
 
 * [0: Getting Started](https://www.dropbox.com/s/ptnpckxbg77d7bp/0_getting_started.Rmd?dl=0)
 * [1: Basic R](https://www.dropbox.com/s/ilicjtak649btwv/1_basic_R.Rmd?dl=0)
 * [2: Manipulating data in R](https://www.dropbox.com/s/cxhb9cgplrb9rbf/2_manipulating_data.Rmd?dl=0)
 
-Class .R files
+#### Class .R files
 
 * [2: Manipulating data in R lecture file](https://www.dropbox.com/s/tv0hgqvxdxv93g2/2_manipulating_data.R?dl=0)
 
-Datasets
+#### Datasets
 
 Quality of Government
 * [Data in .csv file](https://raw.githubusercontent.com/lukesonnet/r_introduction/master/data/qog/qog_ts.csv) (right-click and save-as)
