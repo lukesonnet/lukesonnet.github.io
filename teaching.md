@@ -63,6 +63,7 @@ However, I also will be teaching with Stata in some situations. To that end, I h
 
 * [2: Manipulating data in R lecture file](https://www.dropbox.com/s/tv0hgqvxdxv93g2/2_manipulating_data.R?dl=0)
 * [3: Visualizing data in R lecture file](https://www.dropbox.com/s/vbcckvq8lbeh9sy/3_visualizing_data.R?dl=0)
+
 #### Datasets
 
 Quality of Government
