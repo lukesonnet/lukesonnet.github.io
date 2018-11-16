@@ -31,26 +31,6 @@ Put together for a workshop on January 29, 2016, this tutorial and accompanying 
 * [scrape_facebook.py](https://www.dropbox.com/s/gifdpf0x7hqxpho/scrape_facebook.py?dl=0)
 * [scrape_twitter.py](https://www.dropbox.com/s/5m18rb9ki5tyt4f/scrape_twitter.py?dl=0)
 
-### Undergraduate Data Analysis
-
-#### Resources
-
-I prefer working in R ([Download R](http://cran.rstudio.com/)). It is easy to use RStudio to edit your R code and produce R Markdown files ([Download RStudio](http://www.rstudio.com/products/rstudio/download/)). Hopefully you have used these before in PS 6 or a similar course. If not, there are many resources available on the web, and I will link some of them here shortly.
-
-R Markdown is a great tool to interleave code and writings. I have set up a quick manual and an example of its use to get you started:
-
-* [R Markdown Manual](https://www.dropbox.com/s/9d2nsp0b8m879h6/usingRMarkdown.html?dl=0)
-* [Example HTML](https://www.dropbox.com/s/2k2qewt3h32zyt6/enp_example.html?dl=0) [[.Rmd code that produce it](https://www.dropbox.com/s/9vils43zi92l6bx/enp_example.Rmd?dl=0)]
-
-However, I also will be teaching with Stata in some situations. To that end, I have also created the following resource:
-
-* [Stata tutorial](https://www.dropbox.com/s/wu6eb5eklw30m6s/sonnet_stata_tutorial.html?dl=0)
-
-#### Data Visualization
-
-* [Should the y-axis always go to zero?](http://byjustinfox.com/2014/12/14/the-rise-of-the-y-axis-zero-fundamentalists/) - Justin Fox
-* Don't use pie charts: see [here](http://www.gilliganondata.com/index.php/2009/12/02/how-succinctly-can-i-explain-why-pie-charts-are-evil/) and [here](http://www.perceptualedge.com/articles/08-21-07.pdf). For a counter-argument that there are may be a *few* times when a pie chart is okay, see [here](http://speakingppt.com/2013/03/18/why-tufte-is-flat-out-wrong-about-pie-charts/).
-
 ### LUMS R Course
 
 #### Class .Rmd Files
@@ -74,7 +54,6 @@ Quality of Government
 Pakistan 2018 candidate level election data
 * [Data in .csv file](https://raw.githubusercontent.com/colincookman/pakistan_election_results_2018/master/pk_candidate_data_2018.csv) (right-click and save-as)
 * [accompanying .R exercise file](https://www.dropbox.com/s/xw0tl79cm9861jr/2_pk_election.R?dl=0)
-
 
 CricInfo batting data
 * [Data in .csv file](https://www.dropbox.com/s/0yptp6u9ao8xixd/Ball-to-Ball.csv?dl=0) (open and download in browser)
