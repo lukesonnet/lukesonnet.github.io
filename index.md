@@ -5,7 +5,7 @@ title: Home
 
 ## Home
 
-My name is Luke Sonnet, I am a PhD candidate in [Political Science at UCLA](https://polisci.ucla.edu/) and a graduate student affiliate of the [California Center for Population Research at UCLA](https://ccpr.ucla.edu/). In the summer of 2018 I was a Lahore University of Management Sciences-World Bank Pakistan@100 Pre-Doctoral Fellow.
+My name is Luke Sonnet, I am a PhD candidate in [Political Science at UCLA](https://polisci.ucla.edu/) and a graduate student affiliate of the [California Center for Population Research at UCLA](https://ccpr.ucla.edu/). I am currently a [J-PAL Replication Fellow](https://www.povertyactionlab.org/sonnet), and in the summer of 2018 I was a Lahore University of Management Sciences-World Bank Pakistan@100 Pre-Doctoral Fellow.
 
 [My research](/research) focuses on electoral accountability, the relationship between governance and development, and the role that machine learning can play in the social sciences. My research has been funded by the [International Growth Centre](https://www.theigc.org/), the [Abdul Latif Jameel Poverty Action Lab](https://www.povertyactionlab.org/), and the [American Institute for Pakistan Studies](http://www.pakistanstudies-aips.org/).
 
