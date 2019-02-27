@@ -37,7 +37,7 @@ function showDiv(divName) {
 <div id="pkreg" class="toshow">
 
 <ul><ul class="hidden">
-<li> - Funded by the International Growth Center</li>
+<li> - Funded by the International Growth Center and the Abdul Latif Jameel Poverty Action Lab.</li>
 <li>&nbsp;</li>
 <li> There exists a large political participation gap between the genders in Pakistan, including at the preliminary level of voter registration. There are at least 10 million fewer registered women than men in Pakistan, and this project seeks to explain this gap by studying how social networks condition the political participation of males and females in Khyber Pakhtunkhwa.</li>
 
