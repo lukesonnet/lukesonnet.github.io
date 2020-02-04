@@ -6,6 +6,11 @@
 #            site.social-network-links.<key>
 #   icon: Specify a valid fontawesome icon class
 
+#scholar:
+#  name: "Google Scholar"
+#  baseURL: "https://scholar.google.com/citations?user="
+#  icon: "fa-scholar" DOESNT EXIST
+
 facebook:
   name: "Facebook"
   baseURL: "https://www.facebook.com/"
