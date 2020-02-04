@@ -3,7 +3,7 @@ layout: page
 title: Research
 ---
 
-<script src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script>
 
 function showDiv(divName) {
