@@ -3,23 +3,13 @@ layout: page
 title: Software and Data
 ---
 
-## R packages
-
-#### [KRLS](https://github.com/lukesonnet/KRLS)
-
-This package, written with Chad Hazlett, extends Kernel Regularized Least Squares ([paper here](http://www.stanford.edu/~jhain/Paper/PA2014a.pdf)) to allow for modeling binary outcomes as well as improving the speed of the KRLS software. We also add the ability to add weights and retrieve (cluster) robust standard errors. KRLS is a flexible machine learning technique introduced by Chad Hazlett and Jens Hainmueller for fitting complex non-linear models to reduce misspecification bias.
-
-* [KRLS in Julia](https://github.com/lukesonnet/KRLS.jl) - I have also written KRLS in Julia, which is very fast. This version does not yet include the extension to binary models, weighting, and clustered standard errors.
+## DeclareDesign
 
 #### [estimatr](estimatr.declaredesign.org)
 
 Part of the [DeclareDesign](http://declaredesign.org/) family of packages, this package contains easy-to-use estimators for linear regression, differences-in-means, and the Horvitz-Thompson estimatr with robust standard errors while using C++ to improve speed where it counts the most.
 
-#### [Rvoteview](https://github.com/voteview/Rvoteview)
-
-This R package provides an API to access the [voteview.com](voteview.com) database, as well as helper functions to work with the downloaded data.
-
-## Other projects
+## VoteView
 
 #### [voteview.com](https://voteview.com)
 
@@ -29,13 +19,30 @@ I worked with Jeff Lewis, Adam Boche, and Aaron Rudkin to rebuild the entire Vot
 
 This python module provides methods for fitting the DW-NOMINATE scores that are used on [Voteview.com](https://voteview.com). Currently only works on our server but hopefully will be extended for general use.
 
-## Data
+#### [Rvoteview](https://github.com/voteview/Rvoteview)
+
+This R package provides an API to access the [voteview.com](voteview.com) database, as well as helper functions to work with the downloaded data.
+
+## Other software
+
+#### [KRLS](https://github.com/lukesonnet/KRLS)
+
+This package, written with Chad Hazlett, extends Kernel Regularized Least Squares ([paper here](http://www.stanford.edu/~jhain/Paper/PA2014a.pdf)) to allow for modeling binary outcomes as well as improving the speed of the KRLS software. We also add the ability to add weights and retrieve (cluster) robust standard errors. KRLS is a flexible machine learning technique introduced by Chad Hazlett and Jens Hainmueller for fitting complex non-linear models to reduce misspecification bias.
+
+* [KRLS in Julia](https://github.com/lukesonnet/KRLS.jl) - I have also written KRLS in Julia, which is very fast. This version does not yet include the extension to binary models, weighting, and clustered standard errors.
+
+## Other data
+
+#### [Pakistan 2018 General Election Polling Station Level Data](https://github.com/colincookman/pakistan_polling_stations_2018/)
+
+Funded by the [United States Institute of Peace](http://usip.org/), these data contain polling station level turnout, candidate vote total, gender-disaggregated turnout, and more, including links between census data and polling station data.
 
 #### [Pakistan 2018 General Election Candidate Scrutiny Forms](https://doi.org/10.7910/DVN/PX8JKY), with [Colin Cookman](https://colincookman.wordpress.com/)
 
 Also see the data on [GitHub here](https://github.com/colincookman/pakistan_candidate_scrutiny_18).
 
 These repositories host cleaned candidate scrutiny forms released by the Election Commission of Pakistan for prospective candidates for Pakistan's 2018 national and provincial assembly elections. The scrutiny forms consist of data released on tax payments from the Federal Board of Revenue (FBR), corruption cases from the the National Accountability Bureau (NAB), and oustanding loans from the State Bank of Pakistan (SBP).
+
 
 #### [Brazilian First Names and Gender Ratios](https://github.com/lukesonnet/brazilNames)
 
