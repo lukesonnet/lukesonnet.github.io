@@ -3,9 +3,7 @@ layout: page
 title: Research
 ---
 
-<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script>
-
 function showDiv(divName) {
     var x = document.getElementById(divName);
     if (x.style.display == "none" || x.style.display == "") {

@@ -132,7 +132,17 @@ var main = {
 	} else {
 	  $(".img-desc").hide();
 	}
-  }
+  },
+
+    // Luke Sonnet, allow dropdowns of divs
+    showDiv : function(divName) {
+	var x = document.getElementById(divName);
+	if (x.style.display == "none" || x.style.display == "") {
+            x.style.display = "block";
+	} else {
+            x.style.display = "none";
+	}
+    }
 };
 
 // 2fc73a3a967e97599c9763d05e564189
