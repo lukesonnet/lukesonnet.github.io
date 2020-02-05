@@ -30,7 +30,8 @@ a {
 }
 a:hover,
 a:focus {
-  color: {{ site.hover-col }};
+    color: {{ site.hover-col }};
+    cursor: pointer;
 }
 blockquote {
   color: #808080;
@@ -153,7 +154,7 @@ img {
   height: 40px;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 810px) {
   .navbar-custom {
     padding: 20px 0;
     -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
@@ -786,3 +787,4 @@ pre {
   font-style: italic;
   font-size: 16px;
 }
+
