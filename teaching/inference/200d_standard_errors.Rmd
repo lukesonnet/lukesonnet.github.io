@@ -10,6 +10,7 @@ output:
   html_document:
     theme: cerulean
     toc: yes
+urlcolor: blue
 ---
 
 \newcommand{\y}{\mathbf{y}}
@@ -23,7 +24,7 @@ output:
 knitr::opts_chunk$set(fig.width=3, fig.height=3, fig.path='figs/')
 ```
 
-This document reviews how we think about and estimate uncertainty in OLS under various conditions. Much of the document is taken directly from [these very clear notes](https://web.stanford.edu/~mrosenfe/soc_meth_proj3/matrix_OLS_NYU_notes.pdf), Greene's Econometric Analysis, and slides by Chad Hazlett.
+This document reviews common approaches to thinking about and estimating uncertainty of coefficients estimated via OLS. Much of the document is taken directly from [these very clear notes](https://web.stanford.edu/~mrosenfe/soc_meth_proj3/matrix_OLS_NYU_notes.pdf), Greene's Econometric Analysis, and slides by Chad Hazlett. This document was originally designed for first-year students in the UCLA Political Science statistics sequence.
 
 # Variance-Covariance of $\hat{\bbeta}$
 
@@ -32,9 +33,9 @@ $$\y = \X\bbeta + \bepsilon$$
 where $\y$ is an $n\times 1$ outcome vector, $\X$ is an $n \times p$ matrix of covariates, $\bbeta$ is an $n \times 1$ vector of coefficients, and $\bepsilon$ is an $n \times 1$ vector of noise, or errors. Using OLS, our estimate of $\bbeta$ is 
 $$\hat{\bbeta} = (\X^\top \X)^{-1} \X^\top \y$$
 
-This is just an estimate of the coefficients. We also would like to understand the variance of this estimate to quantify our uncertainty and possibly to perform significance testing. We can derive an explicit function that represents the variance of our estimates, $\V[\hat{\bbeta}|\X]$, given that $\X$ is fixed.
+This is just an estimate of the coefficients. We also would like to understand the variance of this estimate to quantify our uncertainty and possibly to perform significance tests. We can derive an explicit function that represents the variance of our estimates, $\V[\hat{\bbeta}|\X]$, given that $\X$ is fixed.
 
-What we are interested in is $\V[\hat{\bbeta}|\X]$, which is the variance of all of our estimated coefficients $\hat{\bbeta}$ and the covariance between our coefficients. We can represent this as
+What we are interested in is $\V[\hat{\bbeta}|\X]$, which is the variance of all the estimated coefficients $\hat{\bbeta}$ and the covariance between our coefficients. We can represent this as
 
 $$
 \V[\hat{\bbeta}|\X] = 
@@ -70,17 +71,19 @@ $$
 \end{aligned}
 $$
 
-This then is our answer for the variance-covariance matrix of our coefficients $\hat{\bbeta}$. While we have $\X$, we do not have $\E[\bepsilon \bepsilon^\top |\X]$, which is the variance-covariance matrix of the errors. What is this matrix? It is how all of the unobserved errors correlate with each other and their variance.
+This then is our answer for the variance-covariance matrix of our coefficients $\hat{\bbeta}$. While we have $\X$, we do not have $\E[\bepsilon \bepsilon^\top |\X]$, which is the variance-covariance matrix of the errors. What is this matrix? It captures the scale of the unobserved noise in our assumed data generating process as well as how that noise is covaries between units.
 
-Furthermore, this matrix has $n \times n$ unknown parameters that define the variance of each error and the correlation of errors. In theory, we could know the correlation between the error across observations, known as serial correlation, or whether variance of the errors is constant across observations, known as homoskedasticity.
+This matrix has $n \times n$ unknown parameters that define the variance of each units' error and the covariance between errors of different units. Because these parameters are unknown, there are many of them, and they describe fairly complex processes, we often make simplifying assumptions to estimate fewer of these parameters. In general we cannot estimate the full matrix $\E[\bepsilon \bepsilon^\top |\X]$.
 
-This is a crucial point: we could believe that there are very complicated error structures, but we generally cannot estimate the full matrix $\E[\bepsilon \bepsilon^\top |\X]$. We have to make assumptions about the error structure. Do all observations have errors with the same variance? Then we have homoskedasticity. Google heteroskedasticity for graphical representations of when this is violated. Do observations have errors that are correlated in groups? Then you should build this structure into your estimates of $\E[\bepsilon \bepsilon^\top |\X]$. In this document, I run through three of the most common cases. The standard case when we assume spherical errors (no serial correlation and no heteroskedasticity), the case where we allow heteroskedasticity, and the case where there is grouped correlation in the errors. In all cases we assume that the conditional mean of the error is $0$. Precisely $\E[\epsilon|X] = 0$.
+What if we assume that all units have errors with the same variance? Then we are assuming homoskedasticity. Google heteroskedasticity for graphical representations of when this is violated. If we assume that errors covary within particular groups, then we should build this structure into your estimates of $\E[\bepsilon \bepsilon^\top |\X]$, as one does when they estimate cluster robust standard errors. In this document, I run through three of the most common cases. The standard case when we assume spherical errors (no serial correlation and no heteroskedasticity), the case where we allow heteroskedasticity, and the case where there is grouped correlation in the errors. In all cases we assume that the conditional mean of the error is $0$. Precisely $\E[\epsilon|X] = 0$.
 
-**If we get our assumptions about the errors wrong, then our standard errors will be biased, making this topic pivotal for much of social science.**
+**If we get our assumptions about the errors wrong, then our standard errors will be biased, making this topic pivotal for much of social science. Of course, your assumptions will often be wrong anyays, but we can still strive to do our best.**
 
 # Standard Estimation (Spherical Errors)
 
-Very often we make the standard spherical errors assumption. This means that the variance-covariance structure of the errors is very simple. In fact, we assume that all errors have the same variance and that there is no correlation across errors. This looks like the following:
+Assuming spherical errors--no heteroskedasticity and no serial correlation in the errors--is historically the chief assumption in estimating variance of OLS estimates. However, because it is relatively easy to allow for heteroskedasticity (as we will see below), and because assuming spherical errors is often incredibly unrealistic, these errors are not longer used in the majority of published work. Nonetheless, I present it here first as it is the simplest and one of the oldest ways of estimating variance of OLS estimates.
+
+In this case, we assume that all errors have the same variance and that there is no correlation across errors. This looks like the following:
 $$\E[\bepsilon \bepsilon^\top |\X] = 
 \begin{bmatrix}
 \sigma^2 & 0 & \cdots & 0 \\
@@ -106,7 +109,7 @@ where $\mathbf{e} = \hat{\y} - \y = \X\hat{\bbeta} - \y$ is the vector of residu
 Thus our estimate of $\V[\hat{\bbeta}|\X]$ is
 $$\widehat{\V[\hat{\bbeta}|\X]} = \frac{\mathbf{e}^\top \mathbf{e}}{n - p}(\X^\top \X)^{-1}$$
 
-The diagonal of this matrix is our estimated variance for each coefficient, the square root of which is the familiar standard error that we often use to construct confidence intervals or perform null hypothesis significance tests.
+The diagonal of this matrix is our estimated variance for each coefficient, the square root of which is the familiar standard error that we often use to construct confidence intervals or perform significance tests.
 
 Let's see this in `R`
 ```{r vcov}
@@ -152,7 +155,7 @@ Looks good!
 
 # Robust Estimation (Heteroskedasticity Constistent Errors)
 
-Sometimes, the assumption that our errors are homoskedastic is unrealistic. If we think there is naturally greater variance for values with a higher value of $X$, for example. A concrete example could be where income is the outcome and age is the explanatory variable. Among young individuals, income is probably less variable than among older individuals and thus the spread of income around the average income is greater for older individuals than for younger individuals. Another way to think of this is that our observations are still independent, but they are not identically distributed because they have different variance.
+Almost always, the assumption that our errors are homoskedastic is unrealistic. A simple example would be where variance is greater for units with higher values of some covariate $X$.  A concrete example could be where income is the outcome and age is the explanatory variable. Among young individuals, income is probably less variable than among older individuals and thus the spread of income around the average income is greater for older individuals than for younger individuals. Another way to think of this is that our observations are still independent, but they are not identically distributed because they have different variance. In any case, one generally need not come up with an explanation for why they might use heteroskedasticity robust standard errors, as it is generally assumed that heteroskedasticity is likely to be a problem and the cost of estimating  variance this way is low.
 
 Heteroskedasticity is not a problem for coefficients, but it does bias our estimates of the standard errors. We can get White's heteroskedasticity consistent standard errors, or robust standard errors, by assuming something else for the variance-covariance of the errors ($\E[\bepsilon \bepsilon^\top |\X]$) and choosing a different estimator.
 
@@ -243,9 +246,18 @@ outmat
 
 The biggest difference is between the regular standard errors and the robust standard errors. The finite corrections are only slightly diferent from one another.
 
+Shameless plug: we can easily get robust standard erors using `lm_robust` from the [`estimatr`](https://declaredesign.org/r/estimatr/) package.
+
+```{r}
+library(estimatr)
+lm_robust(y ~ 0 + X, se_type = "HC1")
+lm_robust(y ~ 0 + X, se_type = "HC2")
+lm_robust(y ~ 0 + X, se_type = "HC3")
+```
+
 # Cluster Robust Estimation
 
-Another problem is that your data may be clustered. You may have groups of observations that belong to certain groups which may mean that there is dependence in the error within groups. We still assume that there is no dependence across groups. For example, imagine that you have survey respondents in 25 countries. The errors are going to be correlated and distributed differently within countries. Or imagine studying the performance of students in different classrooms. Those in the same classroom are likely to receive similar "shocks" or random effects that those in other classrooms will not. We need to account for this clustering in our data.
+Another problem is that your data may be clustered. You may have groups of observations that are exposed to similar random events, or whose responses to an event are not unrelated to the responses of others in that group. In this case, we will assume no dependence across groups, but estimate variance and covariance of uncertainty within gruops. For example, imagine studying the performance of students in different classrooms. Those in the same classroom are likely to receive similar "shocks" or random effects that those in other classrooms will not. We need to account for this clustering in our data.
 
 Again, this is not a problem for our coefficients. However, the variance covariance matrix of the errors now has a clustered structure. Let's imagine we have $m$ groups, and each group has $n_m$ observations. Then we can write the variance covariance matrix of the errors as
 
@@ -312,19 +324,18 @@ colnames(outmat) <- c("Beta Hat", "Standard SE", "Cluster Robust SE")
 outmat
 ```
 
-`R` does not have a built in function for cluster robust standard errors. But there are scripts online to do this. Let's use one I wrote:
+`R` does not have a built in function for cluster robust standard errors. Also, while there are scripts online to do this, estiamting cluster robust standard errors in `estimatr` is very easy.
 ```{r}
 ## Put data in data.frame
 df <- as.data.frame(cbind(y, X, groups))
 names(df) <- c("y", "x1", "x2", "x3", "groups")
-## Load script for cluster standard errors
-source("http://lukesonnet.github.io/teaching/clusterRSE.R")
+
 ## Fit model
-lmout <- lm(y ~ x2 + x3, data = df)
-## Use my custom script for clustered errors, clustered by "groups"
-vcov_crob_beta_hat_lm <- clusterRSE(lmout, "groups", df)$vcovCL
+library(estimatr)
+lm_robustout <- lm_robust(y ~ x2 + x3, data = df, clusters = groups, se_type = "stata")
+
 ## Display results
-outmat <- cbind(beta_hat, sqrt(diag(vcov_beta_hat)),  sqrt(diag(vcov_crob_beta_hat_lm)))
+outmat <- cbind(beta_hat, sqrt(diag(vcov_beta_hat)),  lm_robustout$std.error)
 colnames(outmat) <- c("Beta Hat", "Standard SE", "Cluster Robust SE")
 outmat
 ```
