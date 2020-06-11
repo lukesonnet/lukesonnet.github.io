@@ -55,7 +55,7 @@ title: Research
 </div>
 </div>
 
-* **Estimating NOMINATE scores over time using penalized splines** - With Jeffrey B. Lewis (UCLA) <a data-toggle="collapse" data-target="#dyn" aria-expanded="false" aria-controls="dyn">(+)</a> <a href="/assets/preprints/LewisSonnet_psdwnominate.pdf">[working paper]]</a>
+* **Estimating NOMINATE scores over time using penalized splines** - With Jeffrey B. Lewis (UCLA) <a data-toggle="collapse" data-target="#dyn" aria-expanded="false" aria-controls="dyn">(+)</a> <a href="/assets/preprints/LewisSonnet_psdwnominate.pdf">[working paper]</a>
 
 <div class="collapse" id="dyn">
      <div class="card card-body">
