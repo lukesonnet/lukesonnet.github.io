@@ -3,7 +3,21 @@ layout: page
 title: Research
 ---
 
-### Governance and Accountability
+### Publications
+
+* Jeffrey B. Lewis, Adam Boche, Aaron Rudkin, and Luke Sonnet. 2018. [**"The new Voteview.com: preserving and continuing Keith Poole’s infrastructure for scholars, students, and observers of Congress"**](https://doi.org/10.1007/s11127-018-0546-0). *Public Choice*, 176 (1-2): 17-32. [[gated]](https://doi.org/10.1007/s11127-018-0546-0) <a href="/assets/preprints/BocheEtAl_Voteview.pdf">[pre-print]</a> <a data-toggle="collapse" data-target="#vv" aria-expanded="false" aria-controls="vv">(+)</a>
+
+<div class="collapse" id="vv">
+     <div class="card card-body">
+<ul><ul style="list-style-type: none;">
+<li> - <a href="https://voteview.com">Voteview.com</a></li>
+<li> - <a href="/software/">Also see the software page</a></li>
+
+</ul></ul>
+</div>
+</div>
+
+### In progress
 
 * **Improving political communication: a field experiment in Pakistan** - With Miriam Golden (UCLA) and Saad Gulzar (Stanford) <a data-toggle="collapse" data-target="#ivr" aria-expanded="false" aria-controls="ivr">(+)</a>
 
@@ -24,15 +38,34 @@ title: Research
 <div class="collapse" id="pkreg">
      <div class="card card-body">
 <ul><ul style="list-style-type: none;">
-<li> - Funded by the International Growth Center and the Abdul Latif Jameel Poverty Action Lab.</li>
-<li>&nbsp;</li>
-<li> There exists a large political participation gap between the genders in Pakistan, including at the preliminary level of voter registration. There are at least 10 million fewer registered women than men in Pakistan, and this project seeks to explain this gap by studying how social networks condition the political participation of males and females in Khyber Pakhtunkhwa.</li>
+<li> There exists a large political participation gap between men and women in Pakistan, including at the preliminary level of voter registration. There are at least 10 million fewer registered women than men in Pakistan, and this project seeks to explain this gap by studying how social networks condition the political participation of males and females in Khyber Pakhtunkhwa.</li>
 
 </ul></ul>
 </div>
 </div>
 
-### Machine Learning
+* **Institutional change and dynastic persistence in Pakistan: the impact of electoral reapportionment and education minimums** - With Ali Cheema (LUMS) and Farooq Naseer (LUMS) <a data-toggle="collapse" data-target="#dyninst" aria-expanded="false" aria-controls="dyninst">(+)</a>
+
+<div class="collapse" id="dyninst">
+     <div class="card card-body">
+<ul><ul style="list-style-type: none;">
+<li>The pervasiveness of families in electoral politics around the world highlights the ability of elites to self-perpetuate, even in the face of considerable institutional change. In this paper, we test how political dynasties in Pakistan responded to two institutional reforms introduced with the explicit goal of curtailing elite power. We demonstrate that electoral reapportionment and the introduction of education minimums---two key components of a reform package designed by General Musharraf in Pakistan following his 1999 coup---had different consequences for political families, a powerful elite group in Pakistan. Using a pseudo-regression discontinuity design leveraging district level reapportionment formulae, we estimate that an additional seat within a district decreases the probability a constituency is won by a dynastic candidate by 9 percentage points, diluting the power of the incumbent elite. On the other hand, using a differences-in-differences design, we estimate that the disqualification of incumbents via education minimums only causes churning within the elite; while incumbents were disqualified, their family members won at high rates in their stead and dynastic prevalence in politics was unchanged. We argue that these differential responses to institutional reforms may be the result of diminishing marginal returns to the number of family members in elected office. These results highlight the usefulness of legislature size and reapportionment to curtailing the power of incumbent elites.</li>
+
+</ul></ul>
+</div>
+</div>
+
+* **Estimating NOMINATE scores over time using penalized splines** - With Jeffrey B. Lewis (UCLA) <a data-toggle="collapse" data-target="#dyn" aria-expanded="false" aria-controls="dyn">(+)</a> <a href="/assets/preprints/LewisSonnet_psdwnominate.pdf">[working paper]]</a>
+
+<div class="collapse" id="dyn">
+     <div class="card card-body">
+<ul><ul style="list-style-type: none;">
+<li> DW-NOMINATE scores are the most widely-used measure of congressional legislators' positions in an abstract "ideology" space. By constraining how individual legislators' positions can change over their careers, DW-NOMINATE produces estimates that are comparable across time, allowing DW-NOMINATE scores to serve as the basis of much of the research on political polarization (for example, Binder 2014; McCarty et al. 2006). However, recent studies have raised concerns about the plausibility of DW-NOMINATE's strong constraints on member's ideological trajectories and how those constraints affect inferences we make about polarization (for example, Bateman and Lapinski 2016). In this paper, we develop Penalized Spline DW-NOMINATE (PSDW-NOMINATE), a new, flexible, approach to estimating the trajectories of legislators' ideal points over time within the NOMINATE framework.  We use penalized spline functions (Eilers and Marx 1996, 2010) to model each legislator's ideal points over her career.  PSDW-NOMINATE allows us to consider a continuum of degrees of constraint and to explore how the constraint that is placed on members' movements affects inferences about political polarization. </li>
+</ul></ul>
+
+</div>
+</div>
+
 
 * **Kernel Regularized Logistic Regression: avoiding misspecification bias while maintaining interpretability for binary outcome regressions** - With Chad Hazlett (UCLA) <a data-toggle="collapse" data-target="#krlogit" aria-expanded="false" aria-controls="krlogit">(+)</a>
 
@@ -49,42 +82,4 @@ title: Research
 </div>
 </div>
 
-* **Simplifying complex functional forms for theoretical interpretability: estimating non-linear relationships in multiple stages** <a data-toggle="collapse" data-target="#func" aria-expanded="false" aria-controls="func">(+)</a>
 
-<div class="collapse" id="func">
-     <div class="card card-body">
-<ul><ul style="list-style-type: none;">
-<li> - Draft available on request</li>
-<li>&nbsp;</li>
-<li> A number of machine learning techniques have improved prediction and analysis in the social sciences. While tools such as kernel regression, generalized additive models, or Kernel Regularized Least Squares do provide smooth conditional expectation functions (CEFs), they are often difficult to interpret with respect to the predictors of interest. This paper presents an approach that uses the partial derivatives of smooth CEFs at each observation as estimates of pointwise marginal effects. I then suggest predicting the variation in these pointwise marginal effects using the original predictors, providing a lower-order, more easily interpretable CEF. This provides a framework for flexible, interpretable, data-driven model fitting. I demonstrate that this method can perform as well as or better than several existing approaches and apply it to research on the onset of civil war.</li>
-
-</ul></ul>
-</div>
-</div>
-
-
-### Estimating Ideology
-
-* Jeffrey B. Lewis, Adam Boche, Aaron Rudkin, and Luke Sonnet. 2018. [**"The new Voteview.com: preserving and continuing Keith Poole’s infrastructure for scholars, students, and observers of Congress"**](https://doi.org/10.1007/s11127-018-0546-0). *Public Choice*, 176 (1-2): 17-32. [[gated]](https://doi.org/10.1007/s11127-018-0546-0) <a href="/assets/preprints/BocheEtAl_Voteview.pdf">[pre-print]</a> <a data-toggle="collapse" data-target="#vv" aria-expanded="false" aria-controls="vv">(+)</a>
-
-<div class="collapse" id="vv">
-     <div class="card card-body">
-<ul><ul style="list-style-type: none;">
-<li> - <a href="https://voteview.com">Voteview.com</a></li>
-<li> - <a href="/software/">Also see the software page</a></li>
-
-</ul></ul>
-</div>
-</div>
-
-* **Estimating NOMINATE scores over time using penalized splines** - With Jeffrey B. Lewis (UCLA) <a data-toggle="collapse" data-target="#dyn" aria-expanded="false" aria-controls="dyn">(+)</a>
-
-<div class="collapse" id="dyn">
-     <div class="card card-body">
-<ul><ul style="list-style-type: none;">
-<li>First presented in 1997 and derived from members' complete roll-call voting records, DW-NOMINATE scores have become the most widely-used measure of the positions of members of Congress in an abstract "ideology" space. By assuming that individual legislators' positions cannot move freely over their careers, the DW-NOMINATE model produces estimates that can be compared across time. This feature has made DW-NOMINATE scores the basis of a great deal of research on political polarization (Binder, 2014; McCarty et al., 2006, for example). However, recent studies have raised concerns about the plausibility of the strong constraints on member's ideological trajectories that DW-NOMINATE imposes and about the effect that those constraints may have on the inferences that we make about how polarization has waxed and waned over the course of US history (Bateman and Lapinski, 2016, for example). In this paper, we develop a new and more flexible approach to estimating the trajectories of legislators' ideal points over time within the NOMINATE modeling framework. We use penalized spline functions (Wood, 2016) to model each legislator's ideal points over her career.  This approach allows us to consider a continuum of possible degrees of constraint and, in particular, to explore how the constraint that is placed on members' movements affects inferences about political polarization and our understanding of legislative behavior more generally. </li>
-
-</ul></ul>
-
-</div>
-</div>

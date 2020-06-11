@@ -3,7 +3,7 @@ layout: page
 title: Teaching/Resources
 ---
 
-I have helped teach an undergraduate data analysis class focused on the causes and consequences of political corruption and a graduate course on causal inference. Below are some relevant materials I have collected and presented that may be of use to others. I also include some tutorials I have developed for presentation to graduate students in the UCLA Political Science department.
+This page mostly has reference materials and tutorials used in courses or workshops that I have run.
 
 ### Causal inference
 
